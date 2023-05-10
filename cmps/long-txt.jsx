@@ -3,7 +3,11 @@ const { useState } = React
 
 export function LongTxt({ txt, length = 100 }) {
 	const [isExpanded, setIsExpanded] = useState(false)
-	const toggleIsExpanded = () => setIsExpanded(!isExpanded)
+	
+	const toggleIsExpanded = (ev) => {
+		ev.stopPropagation()
+		setIsExpanded(!isExpanded)
+	}
 
 	const truncatedTxt = txt.slice(0, length)
 	const displayTxt = isExpanded ? txt : truncatedTxt + '...'

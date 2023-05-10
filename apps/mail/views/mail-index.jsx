@@ -4,7 +4,7 @@ import { mailService } from "../services/mail.service.js"
 
 import { MailList } from "../cmps/mail-list.jsx"
 import { MailFilter } from "../cmps/mail-filter.jsx"
-import { DataTable } from "../cmps/data-table/data-table.jsx"
+import { DataTable } from "../cmps/mail-list.jsx"
 
 // smart component will query emails, and pass them down to MailList
 export function MailIndex() {

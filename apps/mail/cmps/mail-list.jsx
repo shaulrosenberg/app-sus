@@ -1,11 +1,16 @@
-const { Link } = ReactRouterDOM
+import { DataTableRow } from "./mail-preview.jsx"
 
-// import mail-preview
-import { MailPreview } from "./mail-preview.jsx"
+export function DataTable({ mails }) {
+    // const [expandedRowId, setExpandedRowId] = useState(false)
 
-// mail list is a table
-export function MailList({ mails }) {
     return (
-        <h1>Mail List</h1>
+        <table border="1" className="mail-list">
+            <thead>
+                {/* nothing yet */}
+            </thead>
+            <tbody>
+                {mails.map(mail => <DataTableRow key={mail.id} mail={mail} />)}
+            </tbody>
+        </table>
     )
 }
