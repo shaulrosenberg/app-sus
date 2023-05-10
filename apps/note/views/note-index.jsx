@@ -12,15 +12,15 @@ export function NoteIndex() {
   const [notes, setNotes] = useState([])
   useEffect(() => {
     loadNotes()
-    showSuccessMsg('Welcome to notes baby')
+    // showSuccessMsg('Welcome to notes baby')
   }, [])
 
   function loadNotes() {
-    notesService.query(filterBy).then(cars => setCars(cars))
+    notesService.query().then(notes => setNotes(notes))
   }
 
   return (
-    <section class="notes-index">
+    <section className="notes-index">
       <NoteList notes={notes} />
     </section>
   )
