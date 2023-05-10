@@ -14,8 +14,8 @@ export function NotePreview(props) {
                 return
         }
 
-        return <setion className="note-preview">
-
-        </setion>
+        return <section className="note-preview">
+            
+        </section>
 
 }
