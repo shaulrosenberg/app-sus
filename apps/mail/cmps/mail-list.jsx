@@ -1,6 +1,8 @@
-import { DataTableRow } from "./mail-preview.jsx"
+import { MailPreview } from "./mail-preview.jsx"
 
-export function DataTable({ mails }) {
+
+// TODO: pass down onDelete and onChangeField
+export function MailList({ mails }) {
     // const [expandedRowId, setExpandedRowId] = useState(false)
 
     return (
@@ -9,7 +11,7 @@ export function DataTable({ mails }) {
                 {/* nothing yet */}
             </thead>
             <tbody>
-                {mails.map(mail => <DataTableRow key={mail.id} mail={mail} />)}
+                {mails.map(mail => <MailPreview key={mail.id} mail={mail} />)}
             </tbody>
         </table>
     )

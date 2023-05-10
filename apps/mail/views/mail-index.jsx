@@ -4,7 +4,9 @@ import { mailService } from "../services/mail.service.js"
 
 import { MailList } from "../cmps/mail-list.jsx"
 import { MailFilter } from "../cmps/mail-filter.jsx"
-import { DataTable } from "../cmps/mail-list.jsx"
+import { MailFolders } from "../cmps/mail-folders.jsx"
+import { MailCompose } from "../cmps/mail-compose.jsx"
+
 
 // smart component will query emails, and pass them down to MailList
 export function MailIndex() {
@@ -31,7 +33,9 @@ export function MailIndex() {
         <div className="mail-index">
             {/* render folders - they are also filters(status) */}
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-            <DataTable mails={mails} />
+            <MailCompose />
+            <MailFolders />
+            <MailList mails={mails} />
         </div>
     )
 }

@@ -33,7 +33,7 @@ export function MailDetails() {
     }
 
 
-    if(!mail) return <h2>Loading...</h2>
+    if (!mail) return <h2>Loading...</h2>
     return (
         <section className="mail-details">
             <div className="mail-details-header">
@@ -47,7 +47,9 @@ export function MailDetails() {
             </div>
 
             <div className="mail-details-body">
-                
+                <h3>{mail.subject}</h3>
+                <h4>{mail.from}</h4>
+                <p>{mail.body}</p>
             </div>
         </section>
     )

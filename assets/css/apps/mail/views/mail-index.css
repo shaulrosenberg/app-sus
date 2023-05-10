@@ -1,1 +1,20 @@
- /* mail index  */
+/* mail index  */
+
+
+/* main mail layout */
+.mail-index {
+    display: grid;
+    grid-template-columns: 240px 1fr 10px;
+    grid-template-rows: minmax(auto, 100px) 1fr;
+    gap: 5px;
+}
+
+.compose-link {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+    justify-self: start;
+    margin-inline-start: 1rem;
+}
+
+
