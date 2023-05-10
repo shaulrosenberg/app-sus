@@ -21,7 +21,9 @@ export function NoteIndex() {
 
   return (
     <section className="notes-index">
-      <NoteList notes={notes} />
+      <section className="list-container">
+        <NoteList notes={notes} />
+      </section>
     </section>
   )
 }
