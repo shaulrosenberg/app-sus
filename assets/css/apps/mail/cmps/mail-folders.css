@@ -1,0 +1,15 @@
+
+.mail-folders {
+    grid-row: 2;
+    grid-column: 1;
+    list-style-type: none;
+    border: 1px solid black;
+    
+}
+
+/* link in li soon */
+.mail-folders li {
+    display: flex;
+    align-items: center;
+}
+

@@ -3,6 +3,21 @@
 
 .fa {
     font-family: Awesome;
+    color: rgb(65, 63, 63);
+}
+
+.mail-preview button.fa {
+    /* background-color: blue; */
+    background-color: inherit;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+button.fa:hover {
+    background-color: lightgrey;
+    color: black;
 }
 
 .mail-preview .fa {
@@ -17,6 +32,10 @@
     text-decoration: none;
     color: inherit;
     font-size: 1rem;
+}
+
+.fa-expand::before {
+    content: '\f065'; 
 }
 
 .fa-envelope-close::before {
