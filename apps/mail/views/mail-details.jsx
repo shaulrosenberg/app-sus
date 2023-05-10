@@ -32,7 +32,23 @@ export function MailDetails() {
             .then(setNextMailId)
     }
 
+
+    if(!mail) return <h2>Loading...</h2>
     return (
-        <p>Mail details</p>
+        <section className="mail-details">
+            <div className="mail-details-header">
+                <button>Back</button>
+                <div>
+                    <button>reply</button>
+                    <button>trash</button>
+                    <button>export note</button>
+                    <button>mark starred</button>
+                </div>
+            </div>
+
+            <div className="mail-details-body">
+                
+            </div>
+        </section>
     )
 }
