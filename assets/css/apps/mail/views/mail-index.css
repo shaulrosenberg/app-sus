@@ -9,6 +9,10 @@
     gap: 5px;
 }
 
+.mail-index * {
+    font-family: Roboto;
+}
+
 .compose-link {
     grid-row: 1;
     grid-column: 1;
