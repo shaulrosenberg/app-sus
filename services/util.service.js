@@ -6,6 +6,22 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    debounce,
+    loadFromStorage,
+    saveToStorage
+}
+
+function debounce(func, wait) {
+    let timeout
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout)
+            func(...args)
+        };
+
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+    }
 }
 
 function makeId(length = 6) {
@@ -59,4 +75,13 @@ function getMonthName(date) {
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
+}
+
+function saveToStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
+function loadFromStorage(key) {
+    const data = localStorage.getItem(key)
+    return (data) ? JSON.parse(data) : undefined
 }

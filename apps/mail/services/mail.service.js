@@ -35,12 +35,12 @@ function query(filterBy = {}) {
         .then(mails => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(book => regExp.test(book.title))
+                mails = mails.filter(mail => regExp.test(mail.subject) || regExp.test(mail.from))
             }
-            // true / false / undefined = show all mails
-            if (filterBy.isRead) {
-                mails = mails.filter(mail => mail.isRead === filterBy.isRead)
-            }
+            // // true / false / undefined = show all mails
+            // if (filterBy.isRead) {
+            //     mails = mails.filter(mail => mail.isRead === filterBy.isRead)
+            // }
             // add more filters (starred, status - folder, labels)
             return mails
         })
