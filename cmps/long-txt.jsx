@@ -3,7 +3,7 @@ const { useState } = React
 
 export function LongTxt({ txt, length = 100 }) {
 	const [isExpanded, setIsExpanded] = useState(false)
-	
+
 	const toggleIsExpanded = (ev) => {
 		ev.stopPropagation()
 		setIsExpanded(!isExpanded)
@@ -16,9 +16,9 @@ export function LongTxt({ txt, length = 100 }) {
 	return (
 		<div>
 			<p>{displayTxt}</p>
-			{txt.length > length && (
+			{/* {txt.length > length && (
 				<button onClick={toggleIsExpanded}>{btnText}</button>
-			)}
+			)} */}
 		</div>
 	)
 }

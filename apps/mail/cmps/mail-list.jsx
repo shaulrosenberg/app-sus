@@ -6,7 +6,7 @@ export function MailList({ mails }) {
     // const [expandedRowId, setExpandedRowId] = useState(false)
 
     return (
-        <table border="1" className="mail-list">
+        <table className="mail-list">
             <thead>
                 {/* nothing yet */}
             </thead>

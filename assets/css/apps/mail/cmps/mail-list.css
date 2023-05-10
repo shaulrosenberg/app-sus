@@ -1,8 +1,49 @@
 /* mail list */
 
 
-/* change table style */
+/* Styles for the mail list table */
 .mail-list {
     grid-column: 2;
     grid-row: 2;
+    width: 100%;
+    border-collapse: collapse;
+    align-self: start;
+}
+
+/* Styles for the mail preview table row */
+.mail-list tr {
+    cursor: pointer;
+    border-bottom: 1px solid #e0e0e0;
+    max-height: 2.5rem;
+}
+
+.mail-list tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Styles for the mail preview content cells */
+.mail-list td {
+    padding: 10px;
+}
+
+.mail-list .sender {
+    font-weight: bold;
+}
+
+.mail-list .subject {
+    color: #777;
+}
+
+.mail-list .timestamp {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Styles for unread mail */
+.mail-list tr.unread {
+    font-weight: bold;
+}
+
+.mail-list tr.unread .subject {
+    color: #000;
 }

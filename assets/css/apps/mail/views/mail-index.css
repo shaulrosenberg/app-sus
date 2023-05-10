@@ -14,11 +14,32 @@
 }
 
 .compose-link {
-    grid-row: 1;
-    grid-column: 1;
+    
     align-self: center;
     justify-self: start;
     margin-inline-start: 1rem;
 }
 
+/* Styles for the compose mail button */
+.compose-link {
+    grid-row: 1;
+    grid-column: 1;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
+.compose-link:hover {
+    background-color: #1a73e8;
+}
+
+.compose-link:focus,
+.compose-link:active {
+    outline: none;
+    background-color: #0d47a1;
+}

@@ -1,4 +1,10 @@
+.mail-preview {
+    max-height: 2.5rem;
+}
 
+.expanded-list-item {
+
+}
 
 
 .fa {
@@ -11,12 +17,13 @@
     background-color: inherit;
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
 }
 
 button.fa:hover {
     background-color: lightgrey;
+    cursor: pointer;
     color: black;
 }
 

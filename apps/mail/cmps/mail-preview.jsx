@@ -23,9 +23,9 @@ export function MailPreview({ mail }) {
 
     return <Fragment>
         <tr className="mail-preview" onMouseEnter={showControls} onMouseLeave={hideControls} onClick={() => setIsExpanded(prevIsExpanded => !prevIsExpanded)}>
-            <td>{from}</td>
-            <td><LongTxt txt={mail.body} length={PREVIEW_LENGTH} /></td>
-            <td>
+            <td className="sender">{from}</td>
+            <td className="subject"><LongTxt txt={mail.body} length={PREVIEW_LENGTH} /></td>
+            <td className="timestamp">
                 {!isShowControls && sentAt}
                 {isShowControls &&
                     <div className="list-item-controls">
