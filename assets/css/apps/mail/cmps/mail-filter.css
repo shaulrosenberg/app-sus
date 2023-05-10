@@ -1,5 +1,40 @@
-
+/* Container for the search bar */
 
 .mail-filter {
     align-self: center;
+}
+
+.mail-filter .search-container {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+}
+
+/* Input field */
+.mail-filter .search-input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+/* Search icon */
+.mail-filter .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    /* background-image: url("search-icon.png");
+    background-repeat: no-repeat;
+    background-position: center; */
+    cursor: pointer;
+}
+
+/* Focus style */
+.mail-filter .search-input:focus {
+    outline: none;
+    box-shadow: 0 0 3px #6cb6f1;
 }

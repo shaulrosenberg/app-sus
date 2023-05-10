@@ -14,7 +14,6 @@
 .mail-list tr {
     cursor: pointer;
     border-bottom: 1px solid #e0e0e0;
-    max-height: 2.5rem;
 }
 
 .mail-list tr:hover {

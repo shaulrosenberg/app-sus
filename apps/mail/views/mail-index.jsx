@@ -27,6 +27,14 @@ export function MailIndex() {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
     }
 
+    function onDeleteMail(mailId) {
+        mailService.remove(mailId).then(() => {
+            const updatedMails = mails.filter(mail => mail.id !== mailId)
+            setBooks(updatedMails)
+            // showSuccessMsg(`Book (${bookId}) removed!`)
+        })
+    }
+
     // maybe showLoader() someday
     if(!mails) return <h2>Loading...</h2>
     return (
@@ -35,7 +43,7 @@ export function MailIndex() {
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <MailCompose />
             <MailFolders />
-            <MailList mails={mails} />
+            <MailList mails={mails} onDeleteMail={onDeleteMail}/>
         </div>
     )
 }
