@@ -8,7 +8,8 @@ export const mailService = {
     remove,
     save,
     getEmptyMail,
-    getDefaultFilter
+    getDefaultFilter,
+    getNextMailId
 }
 
 const MAIL_KEY = 'mailDB'
@@ -27,7 +28,6 @@ const criteria = {
     isStared: true, // (optional property, if missing: show all)
     labels: ['important', 'romantic'] // has any of the labels
 }
-
 
 function query(filterBy = {}) {
     // return filtered emails, using filterBy
@@ -50,7 +50,6 @@ function get(mailId) {
     return storageService.get(MAIL_KEY, mailId)
 }
 
-
 function save(mail) {
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
@@ -59,9 +58,17 @@ function save(mail) {
     }
 }
 
-
 function remove(mailId) {
     return storageService.remove(MAIL_KEY, mailId)
+}
+
+function getNextMailId(mailId) {
+    return storageService.query(MAIL_KEY)
+        .then(mails => {
+            let mailIdx = mails.findIndex(mail => mail.id === mailId)
+            if (mailIdx === mails.length - 1) mailIdx = -1
+            return mails[mailIdx + 1].id
+        })
 }
 
 function getEmptyMail() {
