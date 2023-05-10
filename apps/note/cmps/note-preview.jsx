@@ -1,23 +1,23 @@
 export function NotePreview({ note }) {
   return (
     <section className="note-preview">
-      <DynamicPreview />
+      <DynamicPreview noteType={note.type} />
       <div className="note-toolbar">
-        <button
-          type="button"
-          title="Reminder"
-          className="note-btn img-reminder clean-btn"
-        ></button>
+        <button className="note-btn img-reminder"></button>
+        <button className="fa fa-envelope-close"></button>
+        <button className="fa fa-archive"></button>
       </div>
     </section>
   )
 }
 
-function NoteTxt() {
-  return
-  ;<React.Fragment>
-    <h2>{note.title}</h2>
-  </React.Fragment>
+function NoteTxt(note) {
+  console.log('note:', note)
+  return (
+    <React.Fragment>
+      <h2>{note.title}</h2>
+    </React.Fragment>
+  )
 }
 
 function NoteImg() {
@@ -29,8 +29,9 @@ function NoteVideo() {}
 function NoteTodos() {}
 
 function DynamicPreview(props) {
-  switch (props.noteType) {
-    case 'txt':
+  debugger
+  switch (props.type) {
+    case 'NoteTxt':
       return <NoteTxt {...props} />
     case 'img':
       return <NoteImg {...props} />

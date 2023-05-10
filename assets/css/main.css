@@ -17,9 +17,11 @@
 /* @import './apps/mail/views/mail-index.css'; */
 
 /* Cmps */
-
+/* mail */
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
 @import '../css/apps/mail/cmps/mail-preview.css';
+/* keep */
+@import '../css/apps/note/cmps/note-preview.css';
 
 /* @import './apps/mail/cmps/mail-list.css'; */

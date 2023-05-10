@@ -1,0 +1,34 @@
+.note-preview .note-btns {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.note-preview .note-btns:hover {
+  opacity: 1;
+}
+
+.note-btns > .note-btn:first-of-type {
+  margin-inline-start: 0.5em;
+}
+
+.note-btn {
+  padding: 1.5em;
+  aspect-ratio: 1/1;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.note-btn.btn-text {
+  padding: 0.5em 2em;
+  aspect-ratio: unset;
+  border-radius: 6px;
+}
+
+.note-btn:hover {
+  background-color: var(--primary-clr-300);
+}
+
+.note-btn.img-reminder {
+  background-image: url(../../../../img/keep/reminder.svg);
+}
