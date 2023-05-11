@@ -16,8 +16,6 @@ import { MailCreate } from "../cmps/mail-create.jsx"
 export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
-    // active folder filtering
-    const [activeFolder, setActiveFolder] = useState('inbox')
     const [isShowCompose, setIsShowCompose] = useState(false)
 
 
@@ -70,7 +68,7 @@ export function MailIndex() {
             {/* render folders - they are also filters(status) */}
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <MailCompose onOpenMailModal={onOpenMailModal} />
-            <MailFolders />
+            <MailFolders onSetFilter={onSetFilter}/>
             <Outlet />
             {!params.mailId && <MailList mails={mails} onDeleteMail={onDeleteMail} />}
             {isShowCompose && <MailCreate onCloseMailModal={onCloseMailModal} onAddMail={onAddMail} />}

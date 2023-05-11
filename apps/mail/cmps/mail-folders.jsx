@@ -1,9 +1,13 @@
 const { Link } = ReactRouterDOM
+const { useState, useEffect } = React
 
 
-export function MailFolders() {
+export function MailFolders({onSetFilter}) {
+    const [activeFolder, setActiveFolder] = useState('inbox')
 
-    
+    function onChangeFolder() {
+        
+    }
 
     return (
         <ul className="mail-folders">
