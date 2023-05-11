@@ -1,22 +1,23 @@
 export function NotePreview({ note }) {
   return (
     <section className="note-preview">
-      <DynamicPreview class="note-content" note={note} />
-      <div className="note-footer">
-        <button className="note-btn img-reminder"></button>
-        <button className="fa fa-envelope-close"></button>
-        <button className="fa fa-archive"></button>
+      <DynamicPreview class="note-preview-content" note={note} />
+      <div className="note-preview-toolbar">
+        <button className="note-btn reminder-btn"></button>
+        <button className="note-btn color-select"></button>
+        <button className="note-btn archive-btn"></button>
+        <button className="note-btn duplicate-btn"></button>
+        <button className="note-btn bin-btn"></button>
       </div>
     </section>
   )
 }
 
 function NoteTxt(props) {
-  console.log('props:', props)
   return (
     <React.Fragment>
-      <h2 className={'note-title'}>{props.note.info.title}</h2>
-      <p className="note-content">{props.note.info.txt}</p>
+      <h2 className="note-preview-title">{props.note.info.title}</h2>
+      <p className="note-preview-content">{props.note.info.txt}</p>
     </React.Fragment>
   )
 }

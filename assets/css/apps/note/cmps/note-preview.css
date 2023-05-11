@@ -5,28 +5,31 @@
   margin-bottom: 16px;
   border-left: 4px solid #ffcc00;
   width: 150px;
+  break-inside: avoid;
+  max-width: fit-content;
+  page-break-inside: avoid;
 }
 
-.note-title {
+.note-preview-title {
   font-size: 18px;
   font-weight: bold;
   color: #333333;
   margin-bottom: 8px;
 }
 
-.note-content {
+.note-preview-content {
   font-size: 14px;
   color: #666666;
   margin-bottom: 8px;
 }
 
-.note-footer {
-  display: none;
+.note-preview-toolbar {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.note-actions button {
+.note-preview-toolbar button {
   background-color: transparent;
   color: #999999;
   border: none;
@@ -34,6 +37,37 @@
   margin-left: 8px;
 }
 
-.note-footer button:hover {
+.note-preview-toolbar button:hover {
   color: #333333;
+}
+
+/* note preview btns */
+
+.note-btn {
+  width: 1.3em;
+  height: 1.3em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+.reminder-btn {
+  background-image: url(../../../../img/keep/reminder.svg);
+}
+
+.color-select {
+  background-image: url(../../../../img/keep/color-palette.svg);
+}
+
+.archive-btn {
+  background-image: url(../../../../img/keep/archive.svg);
+}
+
+.duplicate-btn {
+  background-image: url(../../../../img/keep/duplicate.png);
+}
+
+.bin-btn {
+  background-image: url(../../../../img/keep/bin.png);
 }
