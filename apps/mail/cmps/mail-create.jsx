@@ -14,8 +14,11 @@ export function MailCreate({ onCloseMailModal, onAddMail }) {
 
     function onSaveMail(ev) {
         ev.preventDefault()
+        setMailToEdit(prevMail => ({ ...prevMail, status: 'sent' }))
         onAddMail(mailToEdit)
     }
+
+    const { subject, to, body } = mailToEdit
 
     return (
         <section className="mail-create">
@@ -25,9 +28,9 @@ export function MailCreate({ onCloseMailModal, onAddMail }) {
             </div>
 
             <form onSubmit={onSaveMail}>
-                <input onChange={onChangeValue} type="text" name="to" placeholder="Recipients" className="mail-create-to" />
-                <input onChange={onChangeValue} type="text" name="subject" placeholder="Subject" className="mail-create-subject" />
-                <input onChange={onChangeValue} type="text" name="body" className="mail-create-body" />
+                <input onChange={onChangeValue} type="text" value={to} name="to" placeholder="Recipients" className="mail-create-to" />
+                <input onChange={onChangeValue} type="text" value={subject} name="subject" placeholder="Subject" className="mail-create-subject" />
+                <input onChange={onChangeValue} type="text" value={body} name="body" className="mail-create-body" />
 
                 <button className="mail-create-send">Send</button>
             </form>

@@ -36,12 +36,15 @@ function query(filterBy = {}) {
         .then(mails => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(mail => regExp.test(mail.subject) || regExp.test(mail.from))
+                mails = mails.filter(mail => regExp.test(mail.subject) || regExp.test(mail.from) || regExp.test(mail.body))
             }
             // // true / false / undefined = show all mails
             // if (filterBy.isRead) {
             //     mails = mails.filter(mail => mail.isRead === filterBy.isRead)
             // }
+            if (filterBy.status) {
+                mails = mails.filter(mail => mail.status === filterBy.status)
+            }
             // add more filters (starred, status - folder, labels)
             return mails
         })
@@ -202,7 +205,6 @@ function _createMails() {
                 from: 'popo@codingacademy.com',
                 to: 'user@appsus.com'
             }
-
         ]
 
         utilService.saveToStorage(MAIL_KEY, mails)
