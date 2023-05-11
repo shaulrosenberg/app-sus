@@ -1,13 +1,14 @@
 const { useState, useEffect, useRef } = React
 const { useParams, useNavigate, Outlet } = ReactRouterDOM
 
+import { showSuccessMsg } from "../../../services/event-bus.service.js"
 import { mailService } from "../services/mail.service.js"
 
 import { MailList } from "../cmps/mail-list.jsx"
 import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailFolders } from "../cmps/mail-folders.jsx"
 import { MailCompose } from "../cmps/mail-compose.jsx"
-import { showSuccessMsg } from "../../../services/event-bus.service.js"
+import { MailCreate } from "../cmps/mail-create.jsx"
 
 
 
@@ -15,6 +16,10 @@ import { showSuccessMsg } from "../../../services/event-bus.service.js"
 export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
+    // active folder filtering
+    const [activeFolder, setActiveFolder] = useState('inbox')
+    const [isShowCompose, setIsShowCompose] = useState(false)
+
 
     const params = useParams()
     const navigate = useNavigate()
@@ -40,16 +45,35 @@ export function MailIndex() {
         })
     }
 
+    function onAddMail(mail) {
+        mailService.save(mail)
+            .then(() => {
+                // setEmails
+                showSuccessMsg(`Mail sent!`)
+                onCloseMailModal()
+                loadMails()
+            })
+    }
+
+    function onCloseMailModal() {
+        setIsShowCompose(false)
+    }
+
+    function onOpenMailModal() {
+        setIsShowCompose(true)
+    }
+
     // maybe showLoader() someday
     if (!mails) return <h2>Loading...</h2>
     return (
         <div className="mail-index">
             {/* render folders - they are also filters(status) */}
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-            <MailCompose />
+            <MailCompose onOpenMailModal={onOpenMailModal} />
             <MailFolders />
             <Outlet />
             {!params.mailId && <MailList mails={mails} onDeleteMail={onDeleteMail} />}
+            {isShowCompose && <MailCreate onCloseMailModal={onCloseMailModal} onAddMail={onAddMail} />}
         </div>
     )
 }

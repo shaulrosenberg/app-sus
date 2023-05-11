@@ -9,14 +9,15 @@ export const mailService = {
     save,
     getEmptyMail,
     getDefaultFilter,
-    getNextMailId
+    getNextMailId,
+    getLoggedInUser
 }
 
 const MAIL_KEY = 'mailDB'
 
 _createMails()
 
-const loggedInUser = {
+const gLoggedInUser = {
     email: 'user@appsus.com',
     fullName: 'Mahatma Appsus'
 }
@@ -81,6 +82,10 @@ function getEmptyMail() {
         from: 'user@appsus.com',
         to: ''
     }
+}
+
+function getLoggedInUser() {
+    return gLoggedInUser
 }
 
 function getDefaultFilter() {
