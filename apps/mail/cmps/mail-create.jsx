@@ -14,8 +14,10 @@ export function MailCreate({ onCloseMailModal, onAddMail }) {
 
     function onSaveMail(ev) {
         ev.preventDefault()
-        setMailToEdit(prevMail => ({ ...prevMail, status: 'sent' }))
-        onAddMail(mailToEdit)
+        const newMail = {...mailToEdit}
+        newMail.status = 'sent'
+        console.log(newMail)
+        onAddMail(newMail)
     }
 
     const { subject, to, body } = mailToEdit

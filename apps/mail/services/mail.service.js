@@ -34,6 +34,7 @@ function query(filterBy = {}) {
     // return filtered emails, using filterBy
     return storageService.query(MAIL_KEY)
         .then(mails => {
+            console.log(filterBy)
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regExp.test(mail.subject) || regExp.test(mail.from) || regExp.test(mail.body))
@@ -79,6 +80,7 @@ function getEmptyMail() {
     return {
         subject: '',
         body: '',
+        status: 'inbox',
         isRead: false,
         sentAt: Date.now(),
         removedAt: null,
@@ -95,9 +97,9 @@ function getDefaultFilter() {
     return {
         status: 'inbox',
         txt: '', // no need to support complex text search
-        // isRead: true, // (optional property, if missing: show all)
-        // isStared: true, // (optional property, if missing: show all)
-        // labels: ['important', 'romantic']
+        isRead: true, // (optional property, if missing: show all)
+        isStared: true, // (optional property, if missing: show all)
+        labels: ['important', 'romantic']
     }
 }
 
@@ -107,6 +109,7 @@ function _createMails() {
         mails = [
             {
                 id: 'e101',
+                status: 'inbox',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
@@ -117,6 +120,7 @@ function _createMails() {
             },
             {
                 id: 'e102',
+                status: 'inbox',
                 subject: 'Activity in Shared Folders',
                 body: 'Shinjuro and 55 others made changes in your shared folders',
                 isRead: false,
@@ -127,6 +131,7 @@ function _createMails() {
             },
             {
                 id: 'e103',
+                status: 'inbox',
                 subject: 'Your job alert for web developer',
                 body: '3 new jobs in Israel match your preferences.',
                 isRead: false,
@@ -137,6 +142,7 @@ function _createMails() {
             },
             {
                 id: 'e104',
+                status: 'inbox',
                 subject: 'Vacation Plans',
                 body: 'Let\'s plan a vacation together. Any preferences?',
                 isRead: true,
@@ -147,6 +153,7 @@ function _createMails() {
             },
             {
                 id: 'e105',
+                status: 'inbox',
                 subject: 'Job Opportunity',
                 body: 'We have an exciting job opportunity for you. Are you interested?',
                 isRead: false,
@@ -157,6 +164,7 @@ function _createMails() {
             },
             {
                 id: 'e106',
+                status: 'inbox',
                 subject: 'Meeting Reminder',
                 body: 'Just a reminder that our meeting is scheduled for tomorrow at 2 PM.',
                 isRead: false,
@@ -167,6 +175,7 @@ function _createMails() {
             },
             {
                 id: 'e107',
+                status: 'inbox',
                 subject: 'Dinner Invitation',
                 body: 'Join us for dinner at our place this Saturday. RSVP by tomorrow.',
                 isRead: true,
@@ -177,6 +186,7 @@ function _createMails() {
             },
             {
                 id: 'e108',
+                status: 'inbox',
                 subject: 'New Product Launch',
                 body: 'Introducing our latest product! Check it out on our website.',
                 isRead: true,
@@ -187,6 +197,7 @@ function _createMails() {
             },
             {
                 id: 'e109',
+                status: 'inbox',
                 subject: 'Happy Birthday!',
                 body: 'Wishing you a fantastic birthday filled with joy and happiness!',
                 isRead: false,
@@ -197,6 +208,7 @@ function _createMails() {
             },
             {
                 id: 'e110',
+                status: 'inbox',
                 subject: 'Weekend Getaway',
                 body: 'Let\'s plan a weekend getaway. I found some great travel deals.',
                 isRead: false,

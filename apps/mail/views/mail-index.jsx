@@ -32,6 +32,7 @@ export function MailIndex() {
     }
 
     function onSetFilter(filterBy) {
+        console.log(filterBy)
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
     }
 
@@ -68,7 +69,7 @@ export function MailIndex() {
             {/* render folders - they are also filters(status) */}
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <MailCompose onOpenMailModal={onOpenMailModal} />
-            <MailFolders onSetFilter={onSetFilter}/>
+            <MailFolders onSetFilter={onSetFilter} filterBy={filterBy} />
             <Outlet />
             {!params.mailId && <MailList mails={mails} onDeleteMail={onDeleteMail} />}
             {isShowCompose && <MailCreate onCloseMailModal={onCloseMailModal} onAddMail={onAddMail} />}
