@@ -6,7 +6,7 @@ import { LongTxt } from "../../../cmps/long-txt.jsx"
 
 
 // TODO: pass down onDelete and onChangeField
-export function MailPreview({ mail }) {
+export function MailPreview({ mail, onDeleteMail }) {
     const [isExpanded, setIsExpanded] = useState(false)
     const [isShowControls, setIsShowControls] = useState(false)
 
@@ -30,7 +30,7 @@ export function MailPreview({ mail }) {
                 {isShowControls &&
                     <div className="list-item-controls">
                         {/* maybe links and route to delete/:mailId */}
-                        <button className="fa fa-trash"></button>
+                        <button onClick={() => onDeleteMail(mail.id)} className="fa fa-trash"></button>
                         <button className="fa fa-envelope-close"></button>
                         <button className="fa fa-archive"></button>
                         <button className="fa fa-expand"></button>

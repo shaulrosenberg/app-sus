@@ -127,6 +127,76 @@ function _createMails() {
                 from: '<jobalerts-noreply@linkedin.com>',
                 to: 'user@appsus.com'
             },
+            {
+                id: 'e104',
+                subject: 'Vacation Plans',
+                body: 'Let\'s plan a vacation together. Any preferences?',
+                isRead: true,
+                sentAt: 1551133969976,
+                removedAt: null,
+                from: 'friend@example.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e105',
+                subject: 'Job Opportunity',
+                body: 'We have an exciting job opportunity for you. Are you interested?',
+                isRead: false,
+                sentAt: 1551133983103,
+                removedAt: null,
+                from: 'recruiter@company.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e106',
+                subject: 'Meeting Reminder',
+                body: 'Just a reminder that our meeting is scheduled for tomorrow at 2 PM.',
+                isRead: false,
+                sentAt: 1551133996237,
+                removedAt: null,
+                from: 'colleague@company.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e107',
+                subject: 'Dinner Invitation',
+                body: 'Join us for dinner at our place this Saturday. RSVP by tomorrow.',
+                isRead: true,
+                sentAt: 1551134009371,
+                removedAt: null,
+                from: 'friend@example.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e108',
+                subject: 'New Product Launch',
+                body: 'Introducing our latest product! Check it out on our website.',
+                isRead: true,
+                sentAt: 1551134022505,
+                removedAt: null,
+                from: 'marketing@company.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e109',
+                subject: 'Happy Birthday!',
+                body: 'Wishing you a fantastic birthday filled with joy and happiness!',
+                isRead: false,
+                sentAt: 1551134035639,
+                removedAt: null,
+                from: 'friend@example.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e110',
+                subject: 'Weekend Getaway',
+                body: 'Let\'s plan a weekend getaway. I found some great travel deals.',
+                isRead: false,
+                sentAt: 1551134048773,
+                removedAt: null,
+                from: 'popo@codingacademy.com',
+                to: 'user@appsus.com'
+            }
 
         ]
 

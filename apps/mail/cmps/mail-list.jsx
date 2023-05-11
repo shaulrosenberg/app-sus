@@ -2,7 +2,7 @@ import { MailPreview } from "./mail-preview.jsx"
 
 
 // TODO: pass down onDelete and onChangeField
-export function MailList({ mails }) {
+export function MailList({ mails, onDeleteMail }) {
     // const [expandedRowId, setExpandedRowId] = useState(false)
 
     return (
@@ -11,7 +11,7 @@ export function MailList({ mails }) {
                 {/* nothing yet */}
             </thead>
             <tbody>
-                {mails.map(mail => <MailPreview key={mail.id} mail={mail} />)}
+                {mails.map(mail => <MailPreview key={mail.id} mail={mail} onDeleteMail={onDeleteMail} />)}
             </tbody>
         </table>
     )
