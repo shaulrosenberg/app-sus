@@ -3,6 +3,7 @@ const { useEffect, useState } = React
 import { NotePreview } from '../cmps/note-preview.jsx'
 import { notesService } from '../services/note.service.js'
 import { AddNoteSection } from '../cmps/add-note-section.jsx'
+import { FilterControls } from '../cmps/filter-controls.jsx'
 import {
   showSuccessMsg,
   showErrorMsg,
@@ -22,10 +23,9 @@ export function NoteIndex() {
 
   return (
     <section className="notes-index">
-      <section className="list-container">
-        <AddNoteSection />
-        <NoteList notes={notes} />
-      </section>
+      <AddNoteSection />
+      <NoteList notes={notes} />
+      <FilterControls />
     </section>
   )
 }

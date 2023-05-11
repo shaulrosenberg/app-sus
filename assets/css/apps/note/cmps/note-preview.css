@@ -74,11 +74,12 @@
 
 /* note types */
 .note-vid {
-  width: 22rem;
+  width: fit-content;
 }
+
 .note-preview-content-note-vid iframe {
   width: 100%;
-  max-height: 50;
+  max-height: 50%;
   object-fit: cover;
   object-position: center;
   overflow: hidden;
@@ -89,6 +90,8 @@
 /* img note */
 .note-img {
   max-height: 200px;
+  max-width: 16rem;
   object-fit: cover;
   object-position: center;
+  width: fit-content;
 }

@@ -127,13 +127,20 @@ function _createNotes() {
         info: { title: 'only adam', txt: 'in adam we trust!' },
       },
       {
-        id: 'n134321',
-        createdAt: 1112222,
-        type: 'NoteTxt',
-        isPinned: true,
-        style: { backgroundColor: '#00d' },
-        info: { title: 'only adam', txt: 'in adam we trust!' },
+        id: 'bjfhjsd',
+        type: 'note-img',
+        isPinned: false,
+        isArchived: false,
+        isDeleted: false,
+        info: {
+          url: 'https://images.unsplash.com/photo-1683269102986-c96674b029b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+          title: 'some greenery',
+        },
+        style: {
+          backgroundColor: '#fohc4s',
+        },
       },
+
       {
         id: 'n13bf21',
         createdAt: 1112222,

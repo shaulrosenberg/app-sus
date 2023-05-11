@@ -1,21 +1,17 @@
 .add-note-section {
+  grid-area: add-note-section;
+  justify-self: center;
+  background-color: white;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 95%;
-  padding-inline-end: 0.5em;
-
-  max-width: 37.5em;
-  min-width: 17.5em;
+  width: 90%;
+  max-width: 33em;
+  min-width: 15em;
   height: max-content;
-  box-shadow: 0 0 8px black;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 20px;
 }
-
 /* add note btns */
+
 .add-note-btn {
+  font-family: Roboto;
   width: 1.3em;
   height: 1.3em;
   background-repeat: no-repeat;
@@ -24,7 +20,6 @@
   border: none;
   cursor: pointer;
 }
-
 .todo-done-btn {
   background-image: url(../../../../img/keep/todo-done.svg);
 }

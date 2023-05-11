@@ -1,1 +1,14 @@
- /* note index */
+/* note index */
+
+@media screen and (min-width: 460px) {
+  .notes-index {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: max-content 1fr;
+    grid-template-areas:
+      'filter-controls add-note-section'
+      'filter-controls notes-list';
+    justify-items: unset;
+  }
+}

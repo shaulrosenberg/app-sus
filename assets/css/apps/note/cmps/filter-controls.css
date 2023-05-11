@@ -1,0 +1,4 @@
+.filter-controls {
+  grid-area: filter-controls;
+  border: 2px black solid;
+}
