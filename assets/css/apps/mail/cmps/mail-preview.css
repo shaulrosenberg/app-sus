@@ -6,6 +6,13 @@
 
 }
 
+.mail-star.gray {
+    color: lightgrey;
+}
+
+.mail-star.yellow {
+    color: yellow;
+}
 
 .fa {
     font-family: Awesome;

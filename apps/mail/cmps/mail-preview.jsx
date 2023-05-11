@@ -21,14 +21,19 @@ export function MailPreview({ mail, onDeleteMail }) {
 
     function onClickPreview() {
         setIsExpanded(prevIsExpanded => !prevIsExpanded)
-        
+
     }
 
-    const from = mail.from.split('@')[0]
+    let from = mail.from.split('@')[0]
+    if(from.charAt(0) === '<') from = from.substring(1)
     const sentAt = new Date(mail.sentAt).toLocaleString()
 
+    let starClass = mail.isStarred ? 'yellow' : 'gray'
+    let rowClass = mail.isRead ? '' : 'unread'
+    
     return <Fragment>
-        <tr className="mail-preview" onMouseEnter={showControls} onMouseLeave={hideControls} onClick={onClickPreview}>
+        <tr className={`mail-preview ${rowClass}`} onMouseEnter={showControls} onMouseLeave={hideControls} onClick={onClickPreview}>
+            <td className={`mail-star ${starClass}`}>★</td>
             <td className="sender">{from}</td>
             <td className="subject"><span>{mail.subject}</span><span className="subject-seperator">-</span><LongTxt txt={mail.body} length={PREVIEW_LENGTH} /></td>
             <td className="timestamp">

@@ -26,7 +26,7 @@
 }
 
 .mail-list .sender {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .mail-list .subject {
@@ -36,7 +36,7 @@
 }
 
 .mail-list .subject span {
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .subject-seperator {
@@ -53,6 +53,15 @@
     font-weight: bold;
 }
 
+.mail-list tr.unread .sender {
+    font-weight: bold;
+}
+
+.mail-list tr.unread .subject span {
+    font-weight: bold;
+}
+
 .mail-list tr.unread .subject {
     color: #000;
+    font-weight: bold;
 }
