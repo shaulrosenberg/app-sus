@@ -20,6 +20,12 @@
     margin-inline-start: 1rem;
 }
 
+.mail-loader {
+    grid-row: 2;
+    grid-column: 2;
+    padding: 1.25rem;
+}
+
 /* Styles for the compose mail button */
 .compose-link {
     grid-row: 1;

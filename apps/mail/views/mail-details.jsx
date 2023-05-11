@@ -19,7 +19,7 @@ export function MailDetails() {
     }, [mailId])
 
     function loadMail() {
-        mailService.get(params.mailId)
+        mailService.get(mailId)
             .then(setMail)
             .catch(err => {
                 console.log('Had issued in mail details:', err);
@@ -33,11 +33,11 @@ export function MailDetails() {
     }
 
 
-    if (!mail) return <h2>Loading...</h2>
+    if (!mail) return <h2 className="mail-loader">Loading...</h2>
     return (
         <section className="mail-details">
             <div className="mail-details-header">
-                <button>Back</button>
+                <button onClick={() => navigate('/mail')}>Back</button>
                 <div>
                     <button>reply</button>
                     <button>trash</button>

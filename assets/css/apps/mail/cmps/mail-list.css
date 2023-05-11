@@ -31,6 +31,16 @@
 
 .mail-list .subject {
     color: #777;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mail-list .subject span {
+    font-weight: 600;
+}
+
+.subject-seperator {
+    margin-inline: 0.5rem;
 }
 
 .mail-list .timestamp {

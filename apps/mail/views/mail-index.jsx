@@ -1,4 +1,5 @@
 const { useState, useEffect, useRef } = React
+const { useParams, useNavigate, Outlet } = ReactRouterDOM
 
 import { mailService } from "../services/mail.service.js"
 
@@ -9,11 +10,14 @@ import { MailCompose } from "../cmps/mail-compose.jsx"
 import { showSuccessMsg } from "../../../services/event-bus.service.js"
 
 
+
 // smart component will query emails, and pass them down to MailList
 export function MailIndex() {
-
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
+
+    const params = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadMails()
@@ -44,7 +48,8 @@ export function MailIndex() {
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <MailCompose />
             <MailFolders />
-            <MailList mails={mails} onDeleteMail={onDeleteMail} />
+            <Outlet />
+            {!params.mailId && <MailList mails={mails} onDeleteMail={onDeleteMail} />}
         </div>
     )
 }
