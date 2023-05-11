@@ -21,13 +21,20 @@ export function MailPreview({ mail, onDeleteMail }) {
 
     function onClickPreview() {
         setIsExpanded(prevIsExpanded => !prevIsExpanded)
+        // read/unread
+        // call toggleAttribute
+    }
 
+    //
+    function toggleAttribute(attr, mailId) {
+        // maybe
     }
 
     let from = mail.from.split('@')[0]
     if(from.charAt(0) === '<') from = from.substring(1)
     const sentAt = new Date(mail.sentAt).toLocaleString()
 
+    // this should be 2 way binding
     let starClass = mail.isStarred ? 'yellow' : 'gray'
     let rowClass = mail.isRead ? '' : 'unread'
     
@@ -42,6 +49,7 @@ export function MailPreview({ mail, onDeleteMail }) {
                     <div className="list-item-controls">
                         {/* maybe links and route to delete/:mailId */}
                         <button onClick={() => onDeleteMail(mail.id)} className="fa fa-trash"></button>
+                        {/* add 2 way binding for read/unread */}
                         <button className="fa fa-envelope-close"></button>
                         <button className="fa fa-archive"></button>
                         <button onClick={() => navigate(`/mail/${mail.id}`)} className="fa fa-expand"></button>
