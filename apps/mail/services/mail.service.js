@@ -10,7 +10,8 @@ export const mailService = {
     getEmptyMail,
     getDefaultFilter,
     getNextMailId,
-    getLoggedInUser
+    getLoggedInUser,
+    countMailElements
 }
 
 const MAIL_KEY = 'mailDB'
@@ -89,6 +90,22 @@ function getEmptyMail() {
     }
 }
 
+function countMailElements(mailArray) {
+    const entityTypeMap = {}
+  
+    mailArray.forEach((mail) => {
+      const entityType = mail.status
+      if (entityTypeMap.hasOwnProperty(entityType)) {
+        entityTypeMap[entityType]++
+      } else {
+        entityTypeMap[entityType] = 1
+      }
+    })
+  
+    return entityTypeMap
+  }
+  
+
 function getLoggedInUser() {
     return gLoggedInUser
 }
@@ -98,7 +115,7 @@ function getDefaultFilter() {
         status: 'inbox',
         txt: '', // no need to support complex text search
         isRead: true, // (optional property, if missing: show all)
-        isStared: true, // (optional property, if missing: show all)
+        isStarred: true, // (optional property, if missing: show all)
         labels: ['important', 'romantic']
     }
 }
@@ -113,6 +130,7 @@ function _createMails() {
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
+                isStarred: false,
                 sentAt: 1551133930594,
                 removedAt: null,
                 from: 'momo@momo.com',
@@ -124,6 +142,7 @@ function _createMails() {
                 subject: 'Activity in Shared Folders',
                 body: 'Shinjuro and 55 others made changes in your shared folders',
                 isRead: false,
+                isStarred: true,
                 sentAt: 1551133930594,
                 removedAt: null,
                 from: '<no-reply@dropbox.com>',
@@ -135,6 +154,7 @@ function _createMails() {
                 subject: 'Your job alert for web developer',
                 body: '3 new jobs in Israel match your preferences.',
                 isRead: false,
+                isStarred: false,
                 sentAt: 1551133930594,
                 removedAt: null,
                 from: '<jobalerts-noreply@linkedin.com>',
@@ -146,6 +166,7 @@ function _createMails() {
                 subject: 'Vacation Plans',
                 body: 'Let\'s plan a vacation together. Any preferences?',
                 isRead: true,
+                isStarred: false,
                 sentAt: 1551133969976,
                 removedAt: null,
                 from: 'friend@example.com',
@@ -157,6 +178,7 @@ function _createMails() {
                 subject: 'Job Opportunity',
                 body: 'We have an exciting job opportunity for you. Are you interested?',
                 isRead: false,
+                isStarred: false,
                 sentAt: 1551133983103,
                 removedAt: null,
                 from: 'recruiter@company.com',
@@ -168,6 +190,7 @@ function _createMails() {
                 subject: 'Meeting Reminder',
                 body: 'Just a reminder that our meeting is scheduled for tomorrow at 2 PM.',
                 isRead: false,
+                isStarred: false,
                 sentAt: 1551133996237,
                 removedAt: null,
                 from: 'colleague@company.com',
@@ -179,6 +202,7 @@ function _createMails() {
                 subject: 'Dinner Invitation',
                 body: 'Join us for dinner at our place this Saturday. RSVP by tomorrow.',
                 isRead: true,
+                isStarred: false,
                 sentAt: 1551134009371,
                 removedAt: null,
                 from: 'friend@example.com',
@@ -190,6 +214,7 @@ function _createMails() {
                 subject: 'New Product Launch',
                 body: 'Introducing our latest product! Check it out on our website.',
                 isRead: true,
+                isStarred: true,
                 sentAt: 1551134022505,
                 removedAt: null,
                 from: 'marketing@company.com',
@@ -201,6 +226,7 @@ function _createMails() {
                 subject: 'Happy Birthday!',
                 body: 'Wishing you a fantastic birthday filled with joy and happiness!',
                 isRead: false,
+                isStarred: false,
                 sentAt: 1551134035639,
                 removedAt: null,
                 from: 'friend@example.com',
@@ -212,6 +238,7 @@ function _createMails() {
                 subject: 'Weekend Getaway',
                 body: 'Let\'s plan a weekend getaway. I found some great travel deals.',
                 isRead: false,
+                isStarred: false,
                 sentAt: 1551134048773,
                 removedAt: null,
                 from: 'popo@codingacademy.com',

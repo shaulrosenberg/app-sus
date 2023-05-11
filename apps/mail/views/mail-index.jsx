@@ -17,10 +17,16 @@ export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [isShowCompose, setIsShowCompose] = useState(false)
-
+    const countMailMap = useRef(null)
 
     const params = useParams()
     const navigate = useNavigate()
+
+    useEffect(() => {
+        loadMails()
+        mailService.query()
+        .then(mails => countMailMap.current = mailService.countMailElements(mails))
+    }, [])
 
     useEffect(() => {
         loadMails()
@@ -28,11 +34,11 @@ export function MailIndex() {
     }, [filterBy])
 
     function loadMails() {
-        mailService.query(filterBy).then(mails => setMails(mails))
+        mailService.query(filterBy).then(setMails)
     }
 
     function onSetFilter(filterBy) {
-        console.log(filterBy)
+        console.log(filterBy) //remove
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
     }
 
@@ -69,7 +75,7 @@ export function MailIndex() {
             {/* render folders - they are also filters(status) */}
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <MailCompose onOpenMailModal={onOpenMailModal} />
-            <MailFolders onSetFilter={onSetFilter} filterBy={filterBy} />
+            <MailFolders onSetFilter={onSetFilter} filterBy={filterBy} countMailMap={countMailMap.current}/>
             <Outlet />
             {!params.mailId && <MailList mails={mails} onDeleteMail={onDeleteMail} />}
             {isShowCompose && <MailCreate onCloseMailModal={onCloseMailModal} onAddMail={onAddMail} />}

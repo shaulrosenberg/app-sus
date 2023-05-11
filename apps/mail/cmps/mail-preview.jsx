@@ -19,11 +19,16 @@ export function MailPreview({ mail, onDeleteMail }) {
         setIsShowControls(false)
     }
 
+    function onClickPreview() {
+        setIsExpanded(prevIsExpanded => !prevIsExpanded)
+        
+    }
+
     const from = mail.from.split('@')[0]
     const sentAt = new Date(mail.sentAt).toLocaleString()
 
     return <Fragment>
-        <tr className="mail-preview" onMouseEnter={showControls} onMouseLeave={hideControls} onClick={() => setIsExpanded(prevIsExpanded => !prevIsExpanded)}>
+        <tr className="mail-preview" onMouseEnter={showControls} onMouseLeave={hideControls} onClick={onClickPreview}>
             <td className="sender">{from}</td>
             <td className="subject"><span>{mail.subject}</span><span className="subject-seperator">-</span><LongTxt txt={mail.body} length={PREVIEW_LENGTH} /></td>
             <td className="timestamp">
