@@ -1,27 +1,34 @@
+import { notesService } from '../services/note.service.js'
 const { useState } = React
-export function AddNoteSection() {
+import { eventBusService } from '../../../services/event-bus.service.js'
+import {
+  showSuccessMsg,
+  showErrorMsg,
+} from '../../../services/event-bus.service.js'
+export function AddNoteSection(props) {
   const [expanded, setExpanded] = useState(false)
-  const [noteType, setNoteType] = useState('')
+  const [noteType, setNoteType] = useState('note-txt')
   const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [todos, setTodos] = useState('')
+  const [txt, setTxt] = useState('')
   const [url, setUrl] = useState('')
 
   function handleExpand(type) {
     setNoteType(type)
-    setExpanded(true)
+    setExpanded(prevExpand => !prevExpand)
   }
 
   function handleCreateNote() {
-    if (title.trim() === '' && body.trim() === '') {
+    if (title.trim() === '' && txt.trim() === '') {
       return
     }
 
-    handleNoteCreation({ type: noteType, title, body })
+    handleNoteCreation({ type: noteType, title, txt })
 
     setTitle('')
-    setBody('')
-    setExpanded(false)
-    setNoteType('')
+    setTxt('')
+    setExpanded(prevExpand => !prevExpand)
+    setNoteType('note-txt')
   }
 
   function handleCreateTodo() {
@@ -29,9 +36,14 @@ export function AddNoteSection() {
       return
     }
 
-    handleNoteCreation({ type: 'note-todos', title, todos: [] })
+    handleNoteCreation({
+      type: 'note-todos',
+      title,
+      todos: todos.split(',').map(todo => todo.trim()),
+    })
 
     setTitle('')
+    setTodos('')
     setExpanded(false)
     setNoteType('')
   }
@@ -80,13 +92,13 @@ export function AddNoteSection() {
   const renderContent = () => {
     if (!expanded) {
       return (
-        <div className="note-input" onClick={() => handleExpand('')}>
-          <span className="placeholder">Take a note</span>
+        <div className="note-input" onClick={() => handleExpand('note-txt')}>
+          <span className="placeholder">Whats on your mind...?</span>
         </div>
       )
     }
 
-    if (noteType === '') {
+    if (noteType === 'note-txt') {
       return (
         <div className="note-input">
           <input
@@ -97,8 +109,8 @@ export function AddNoteSection() {
           />
           <textarea
             placeholder="Note"
-            value={body}
-            onChange={e => setBody(e.target.value)}
+            value={txt}
+            onChange={e => setTxt(e.target.value)}
           />
           <button onClick={handleCreateNote}>Create</button>
         </div>
@@ -113,6 +125,12 @@ export function AddNoteSection() {
             placeholder="Title"
             value={title}
             onChange={e => setTitle(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="enter a comma separated list of todos"
+            value={todos}
+            onChange={e => setTodos(e.target.value)}
           />
 
           <button onClick={handleCreateTodo}>Create</button>
@@ -171,10 +189,18 @@ export function AddNoteSection() {
     setNoteType('')
   }
 
+  function handleNoteCreation({ type, title, ...rest }) {
+    const info = { title, ...rest }
+    const note = { type, info }
+    notesService
+      .createNote(note)
+      .then(note => props.onUpdate('add', null, note))
+  }
+
   return (
     <section className="add-note-section">
       {renderContent()}
-      <div className="note-type-butons">
+      <div className="note-type-buttons">
         <button
           className="add-note-btn todo-done-btn"
           onClick={() => handleExpand('note-todos')}

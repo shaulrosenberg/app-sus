@@ -5,6 +5,11 @@ import { utilService } from '../../../services/util.service.js'
 const NOTES_STORAGE_KEY = 'notesDB'
 export const notesService = {
   query,
+  createNote,
+  remove,
+  get,
+  duplicateNote,
+  save,
 }
 
 _createNotes()
@@ -21,9 +26,30 @@ function save(note) {
   }
 }
 
-function createNote(type, info) {
+function remove(noteId) {
+  return storageService.remove(NOTES_STORAGE_KEY, noteId)
+}
+
+function get(noteId) {
+  return storageService.get(NOTES_STORAGE_KEY, noteId)
+}
+
+function duplicateNote(noteId) {
+  return query()
+    .then(notes => {
+      const note = notes.find(note => note.id === noteId)
+      const duplicatedNote = JSON.parse(JSON.stringify(note))
+      delete duplicatedNote.id
+      return duplicatedNote
+    })
+    .then(note => {
+      console.log('note:', note)
+      return save(note)
+    })
+}
+
+function createNote({ type, info }) {
   const note = {
-    id: utilService.makeId(),
     type,
     reminder: false,
     isPinned: false,
@@ -32,7 +58,16 @@ function createNote(type, info) {
     info,
     style: { backgroundColor: 'none' },
   }
-  save(note)
+  if (note.info.todos) {
+    const todos = note.info.todos
+
+    note.info.todos = todos.map(todo => ({
+      id: utilService.makeId(),
+      txt: todo,
+      isChecked: false,
+    }))
+  }
+  return save(note)
 }
 
 function _createNotes() {
@@ -47,7 +82,7 @@ function _createNotes() {
         isArchived: true,
         isDeleted: false,
         info: {
-          title: 'Adam/s todos!!',
+          title: 'chilling todos!!',
           txt: '',
           url: null,
           todos: [
@@ -112,7 +147,7 @@ function _createNotes() {
       {
         id: 'n1031',
         createdAt: 1112222,
-        type: 'NoteTxt',
+        type: 'note-txt',
         isPinned: true,
         style: { backgroundColor: '#00d' },
         info: { title: 'love is true', txt: 'Fullstack Me Baby!' },
@@ -121,7 +156,7 @@ function _createNotes() {
       {
         id: 'n134621',
         createdAt: 1112222,
-        type: 'NoteTxt',
+        type: 'note-txt',
         isPinned: true,
         style: { backgroundColor: '#00d' },
         info: { title: 'only adam', txt: 'in adam we trust!' },
@@ -144,7 +179,7 @@ function _createNotes() {
       {
         id: 'n13bf21',
         createdAt: 1112222,
-        type: 'NoteTxt',
+        type: 'note-txt',
         isPinned: true,
         style: { backgroundColor: '#00d' },
         info: { title: 'only adam', txt: 'in adam we trust!' },
@@ -152,7 +187,7 @@ function _createNotes() {
       {
         id: 'nsan101',
         createdAt: 1112222,
-        type: 'NoteTxt',
+        type: 'note-txt',
         isPinned: true,
         style: { backgroundColor: '#00d' },
         info: { title: 'love is true', txt: 'Fullstack Me Baby!' },
@@ -160,7 +195,7 @@ function _createNotes() {
       {
         id: 'n13b21',
         createdAt: 1112222,
-        type: 'NoteTxt',
+        type: 'note-txt',
         isPinned: true,
         style: { backgroundColor: '#00d' },
         info: { title: 'only adam', txt: 'in adam we trust!' },
@@ -168,7 +203,7 @@ function _createNotes() {
       {
         id: 'n132221',
         createdAt: 1112222,
-        type: 'NoteTxt',
+        type: 'note-txt',
         isPinned: true,
         style: { backgroundColor: '#00d' },
         info: { title: 'only adam', txt: 'in adam we trust!' },
@@ -176,7 +211,7 @@ function _createNotes() {
       {
         id: 'n13f21',
         createdAt: 1112222,
-        type: 'NoteTxt',
+        type: 'note-txt',
         isPinned: true,
         style: { backgroundColor: '#00d' },
         info: { title: 'only adam', txt: 'in adam we trust!' },

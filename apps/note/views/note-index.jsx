@@ -14,17 +14,48 @@ export function NoteIndex() {
   const [notes, setNotes] = useState([])
   useEffect(() => {
     loadNotes()
-    // showSuccessMsg('Welcome to notes baby')
+    showSuccessMsg('Welcome to notes baby')
   }, [])
 
   function loadNotes() {
     notesService.query().then(notes => setNotes(notes))
   }
 
+  function onToggleAttr(noteId, attr, value) {
+    notesService
+      .get(noteId)
+      .then(note => {
+        note[attr] = value
+        return note
+      })
+      .then(note => notesService.save(note))
+      .then(() => loadNotes())
+  }
+
+  function handleUpdate(updateType, noteId, additionalInfo) {
+    if (updateType === 'add') {
+      setNotes([...notes, note])
+      showSuccessMsg('note added')
+    } else if (updateType === 'remove') {
+      notesService.remove(noteId).then(() => {
+        const updatedNotes = notes.filter(note => note.id !== noteId)
+        setNotes(updatedNotes)
+        showSuccessMsg(`Note (${noteId}) removed!`)
+      })
+    } else if (updateType === 'duplicate') {
+      notesService.duplicateNote(noteId).then(duplicatedNote => {
+        setNotes([...notes, duplicatedNote])
+        showSuccessMsg(`Note (${noteId}) duplicated!`)
+      })
+    } else if (updateType === 'bgColorChange') {
+      onToggleAttr(noteId, 'style', additionalInfo)
+    }
+  }
+
   return (
     <section className="notes-index">
-      <AddNoteSection />
-      <NoteList notes={notes} />
+      <AddNoteSection onUpdate={handleUpdate} />
+      <NoteList onUpdate={handleUpdate} notes={notes} />
       <FilterControls />
     </section>
   )

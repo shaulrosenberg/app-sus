@@ -1,9 +1,9 @@
 .note-preview {
+  font-family: Roboto;
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 12px;
   margin-bottom: 16px;
-  border-left: 4px solid #ffcc00;
   width: 150px;
   break-inside: avoid;
   max-width: fit-content;
@@ -21,6 +21,15 @@
   font-size: 14px;
   color: #666666;
   margin-bottom: 8px;
+}
+
+.note-preview-toolbar {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.note-preview-toolbar:hover {
+  opacity: 1;
 }
 
 .note-preview-toolbar {
@@ -85,6 +94,10 @@
   overflow: hidden;
   border: none;
   border-radius: unset;
+}
+/* todos note  */
+.note-preview-content-note-todos ul {
+  list-style: none;
 }
 
 /* img note */

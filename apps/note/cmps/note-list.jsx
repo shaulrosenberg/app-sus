@@ -1,10 +1,9 @@
 import { NotePreview } from './note-preview.jsx'
-export function NoteList({ notes }) {
-  // if (!notes) return <p>Loading</p>
+export function NoteList({ onUpdate, notes }) {
   return (
     <section className="notes-list">
       {notes.map(note => (
-        <NotePreview key={note.id} note={note} />
+        <NotePreview onUpdate={onUpdate} key={note.id} note={note} />
       ))}
     </section>
   )
