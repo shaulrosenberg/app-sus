@@ -4,7 +4,7 @@
 /* main mail layout */
 .mail-index {
     display: grid;
-    grid-template-columns: 240px 1fr 10px;
+    grid-template-columns: 1fr;
     grid-template-rows: minmax(auto, 100px) 1fr;
     gap: 5px;
 }
@@ -14,9 +14,9 @@
 }
 
 .compose-link {
-    align-self: center;
-    justify-self: start;
-    margin-inline-start: 1rem;
+    position: fixed;
+    bottom: 3.3rem;
+    right: 2rem;
     height: 3rem;
     border: none;
 }
@@ -63,4 +63,21 @@
 .compose-link:active {
     outline: none;
     background-color: #0d47a1;
+}
+
+
+
+@media screen and (min-width: 480px) {
+
+    .mail-index {
+        grid-template-columns: 240px 1fr 10px;
+    }
+
+    .compose-link {
+        align-self: center;
+        justify-self: start;
+        margin-inline-start: 1rem;
+        position: static;
+    }
+
 }

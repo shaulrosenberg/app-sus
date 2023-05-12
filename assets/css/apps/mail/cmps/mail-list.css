@@ -3,8 +3,6 @@
 
 /* Styles for the mail list table */
 .mail-list {
-    grid-column: 2;
-    grid-row: 2;
     width: 100%;
     border-collapse: collapse;
     align-self: start;
@@ -64,4 +62,14 @@
 .mail-list tr.unread .subject {
     color: #000;
     font-weight: bold;
+}
+
+
+
+
+@media screen and (min-width: 480px) {
+    .mail-list {
+        grid-column: 2;
+        grid-row: 2;
+    }
 }
