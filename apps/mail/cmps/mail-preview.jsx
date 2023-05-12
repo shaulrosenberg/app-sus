@@ -60,7 +60,7 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
         <tr className={`mail-preview ${rowClass}`} onMouseEnter={showControls} onMouseLeave={hideControls} onClick={onClickPreview}>
             <td className={`mail-star ${starClass}`} onClick={onStarred}>★</td>
             <td className="sender">{from}</td>
-            <td className="subject"><span>{mail.subject}</span><span className="subject-seperator">-</span><LongTxt txt={mail.body} length={PREVIEW_LENGTH} /></td>
+            <td className="subject"><span>{mail.subject}</span><span className="subject-separator">-</span><LongTxt txt={mail.body} length={PREVIEW_LENGTH} /></td>
             <td className="timestamp">
                 {!isShowControls && sentAt}
                 {isShowControls &&
@@ -75,7 +75,7 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
         </tr>
         {
             isExpanded && <tr className="expanded-list-item">
-                <td colSpan="3">
+                <td colSpan="4">
                     <p>{mail.body}</p>
                 </td>
             </tr>
