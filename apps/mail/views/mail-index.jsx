@@ -25,7 +25,7 @@ export function MailIndex() {
     useEffect(() => {
         loadMails()
         mailService.query()
-        .then(mails => countMailMap.current = mailService.countMailElements(mails))
+            .then(mails => countMailMap.current = mailService.countMailElements(mails))
     }, [])
 
     useEffect(() => {
@@ -68,6 +68,16 @@ export function MailIndex() {
         setIsShowCompose(true)
     }
 
+    function onToggleAttr(mailId, attr, value) {
+        mailService.get(mailId)
+            .then(mail => {
+                mail[attr] = value
+                return mail
+            })
+            .then(mail => mailService.save(mail))
+            .then(() => loadMails())
+    }
+
     // maybe showLoader() someday
     if (!mails) return <h2>Loading...</h2>
     return (
@@ -75,9 +85,9 @@ export function MailIndex() {
             {/* render folders - they are also filters(status) */}
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <MailCompose onOpenMailModal={onOpenMailModal} />
-            <MailFolders onSetFilter={onSetFilter} filterBy={filterBy} countMailMap={countMailMap.current}/>
+            <MailFolders onSetFilter={onSetFilter} filterBy={filterBy} countMailMap={countMailMap.current} />
             <Outlet />
-            {!params.mailId && <MailList mails={mails} onDeleteMail={onDeleteMail} />}
+            {!params.mailId && <MailList mails={mails} onDeleteMail={onDeleteMail} onToggleAttr={onToggleAttr} />}
             {isShowCompose && <MailCreate onCloseMailModal={onCloseMailModal} onAddMail={onAddMail} />}
         </div>
     )
