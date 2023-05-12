@@ -13,24 +13,26 @@
 /* Input field */
 .mail-filter .search-input {
     width: 100%;
-    padding: 10px 10px 10px 35px;
+    padding: 1rem 10px 1rem 35px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 0.875rem;
+    font-size: 1rem;
 }
 
 /* Search icon */
 .mail-filter .search-icon {
     position: absolute;
     top: 50%;
-    left: 10px;
+    left: 0.625rem;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    /* background-image: url("search-icon.png");
-    background-repeat: no-repeat;
-    background-position: center; */
+    width: 1.25rem;
+    height: 1.25rem;
     cursor: pointer;
+}
+
+.search-icon::before {
+    font-family: Awesome;
+    content: '\f002';
 }
 
 /* Focus style */

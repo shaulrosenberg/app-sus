@@ -1,11 +1,10 @@
-const { Link } = ReactRouterDOM
+const { Link, useNavigate } = ReactRouterDOM
 const { useState, useEffect } = React
-
-import { mailService } from "../services/mail.service.js"
 
 export function MailFolders({ onSetFilter, filterBy, countMailMap }) {
     const [activeFolder, setActiveFolder] = useState('inbox')
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
+    const navigate = useNavigate()
 
     function onChangeFolder(folderName) {
         const newFilter = { ...filterByToEdit }
@@ -13,6 +12,7 @@ export function MailFolders({ onSetFilter, filterBy, countMailMap }) {
         setActiveFolder(folderName)
         setFilterByToEdit(newFilter)
         onSetFilter(newFilter)
+        navigate('/mail')
     }
 
     return (

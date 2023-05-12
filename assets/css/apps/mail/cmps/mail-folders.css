@@ -8,6 +8,9 @@
 
 .folder-item {
     display: flex;
+    width: 80%;
+    border-start-end-radius: 1rem;
+    border-end-end-radius: 1rem;
     align-items: center;
     padding: 10px;
     cursor: pointer;
@@ -17,21 +20,58 @@
     background-color: #e0e0e0;
 }
 
+.folder-item span {
+    display: block;
+    width: 40%;
+}
+
+.folder-item span:first-of-type {
+    width: 20%;
+}
+
 .folder-icon {
     width: 20px;
     height: 20px;
     margin-right: 10px;
     display: inline-block;
+    font-family: Awesome;
+    background-repeat: no-repeat;
 }
 
 .folder-count {
-    display: inline-block;
+    text-align: end;
+    font-size: 0.75rem;
 }
 
 .folder-name {
     font-weight: bold;
+    font-size: 0.875rem;
 }
 
 .folder-item.active {
     background-color: #e0e0e0;
+}
+
+.folder-item.active .folder-count {
+    font-weight: 600;
+}
+
+.folder-item:nth-child(1) .folder-icon{
+    background-image: url('../../../../img/mail/inbox.png');
+}
+
+.folder-item:nth-child(2) .folder-icon {
+    background-image: url('../../../../img/mail/star.png');
+}
+
+.folder-item:nth-child(3) .folder-icon {
+    background-image: url('../../../../img/mail/sent.png');
+}
+
+.folder-item:nth-child(4) .folder-icon {
+    background-image: url('../../../../img/mail/draft.png');
+}
+
+.folder-item:nth-child(5) .folder-icon {
+    background-image: url('../../../../img/mail/trash.png');
 }

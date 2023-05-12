@@ -27,7 +27,22 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
         onToggleAttr(mail.id, 'isRead', true)
     }
 
-    function onStarred(ev) { 
+    function onRemoveMail(ev) {
+        ev.stopPropagation()
+        if(mail.status !== 'trash') {
+            onToggleAttr(mail.id, 'status', 'trash')
+            return
+        }
+        onDeleteMail(mail.id)
+    }
+
+    function onToggleRead(ev) {
+        ev.stopPropagation()
+        onToggleAttr(mail.id, 'isRead', !isRead)
+        setIsRead(prevState => !prevState)
+    }
+
+    function onStarred(ev) {
         ev.stopPropagation()
         onToggleAttr(mail.id, 'isStarred', !isStarred)
         setIsStarred(prevIsStarred => !prevIsStarred)
@@ -50,10 +65,9 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
                 {!isShowControls && sentAt}
                 {isShowControls &&
                     <div className="list-item-controls">
-                        {/* maybe links and route to delete/:mailId */}
-                        <button onClick={() => onDeleteMail(mail.id)} className="fa fa-trash"></button>
-                        {/* add 2 way binding for read/unread */}
-                        <button className="fa fa-envelope-close"></button>
+                        <button onClick={onRemoveMail} className="fa fa-trash"></button>
+
+                        <button onClick={onToggleRead} className={isRead ? "fa fa-envelope-close" : "fa fa-envelope-open"}></button>
                         <button className="fa fa-archive"></button>
                         <button onClick={() => navigate(`/mail/${mail.id}`)} className="fa fa-expand"></button>
                     </div>}

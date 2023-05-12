@@ -25,8 +25,8 @@ export function MailFilter({ filterBy, onSetFilter }) {
         <section className="mail-filter">
             <form onSubmit={onSubmitFilter}>
                 <div className="search-container">
-                    <input className="search-input" value={txt} onChange={handleChange} name="txt" id="txt" type="text" placeholder="By Title" />
-                    <div className="search-icon">🔍</div>
+                    <input className="search-input" value={txt} onChange={handleChange} name="txt" id="txt" type="text" placeholder="Search mail" />
+                    <div className="search-icon"></div>
                 </div>
             </form>
         </section>

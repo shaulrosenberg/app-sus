@@ -30,11 +30,10 @@ export function MailIndex() {
 
     useEffect(() => {
         loadMails()
-
     }, [filterBy])
 
     function loadMails() {
-        mailService.query(filterBy).then(setMails)
+        return mailService.query(filterBy).then(setMails)
     }
 
     function onSetFilter(filterBy) {
@@ -74,7 +73,7 @@ export function MailIndex() {
                 mail[attr] = value
                 return mail
             })
-            .then(mail => mailService.save(mail))
+            .then(mailService.save)
             .then(() => loadMails())
     }
 

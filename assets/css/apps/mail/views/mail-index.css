@@ -14,10 +14,25 @@
 }
 
 .compose-link {
-    
     align-self: center;
     justify-self: start;
     margin-inline-start: 1rem;
+    height: 3rem;
+    border: none;
+}
+
+.compose-link span:first-of-type {
+    width: 20%;
+    padding-inline-end: 20px;
+}
+
+.compose-link span:first-of-type::before {
+    font-family: Awesome;
+    content: '\f304';
+}
+
+.compose-link span:last-of-type {
+    width: 80%;
 }
 
 .mail-loader {
