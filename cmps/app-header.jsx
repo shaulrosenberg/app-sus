@@ -44,7 +44,7 @@ export function AppHeader() {
                 <img className="app-logo" src="../assets/img/horselogo.jpg" alt="Logo" />
             </Link>
             <div className="menu-button" onClick={toggleMenu}>
-                Menu
+                <img src="../assets/img/menu-icon.jpg" alt="Menu" />
             </div>
             <nav className={`menu-grid ${isShowMenu ? 'show' : ''}`}>
                 {navLinks.map((link) => (

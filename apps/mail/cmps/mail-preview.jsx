@@ -65,11 +65,11 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
                 {!isShowControls && sentAt}
                 {isShowControls &&
                     <div className="list-item-controls">
-                        <button onClick={onRemoveMail} className="fa fa-trash"></button>
+                        <button onClick={onRemoveMail} className="fa fa-trash" title="Move to trash"></button>
 
-                        <button onClick={onToggleRead} className={isRead ? "fa fa-envelope-close" : "fa fa-envelope-open"}></button>
-                        <button className="fa fa-archive"></button>
-                        <button onClick={() => navigate(`/mail/${mail.id}`)} className="fa fa-expand"></button>
+                        <button onClick={onToggleRead} className={isRead ? "fa fa-envelope-close" : "fa fa-envelope-open"} title="Read/Unread"></button>
+                        <button className="fa fa-archive" title="Archive"></button>
+                        <button onClick={() => navigate(`/mail/${mail.id}`)} className="fa fa-expand" title="Open"></button>
                     </div>}
             </td>
         </tr>
