@@ -7,27 +7,27 @@ export function AppHeader() {
     const navLinks = [
         {
             path: '/',
-            logoSrc: '/assets/img/home.png',
+            logoSrc: './assets/img/home.png',
             name: 'Home',
         },
         {
-            path: '/about',
-            logoSrc: '/assets/img/about.png',
+            path: './about',
+            logoSrc: './assets/img/about.png',
             name: 'About',
         },
         {
             path: '/mail',
-            logoSrc: '/assets/img/mail-icon.png',
+            logoSrc: './assets/img/mail-icon.png',
             name: 'Mail',
         },
         {
             path: '/book',
-            logoSrc: '/assets/img/book.png',
+            logoSrc: './assets/img/book.png',
             name: 'Book',
         },
         {
             path: '/note',
-            logoSrc: '/assets/img/note.png',
+            logoSrc: './assets/img/note.png',
             name: 'Note',
         },
     ];
@@ -41,10 +41,10 @@ export function AppHeader() {
     return (
         <header className="app-header">
             <Link to="/">
-                <img className="app-logo" src="../assets/img/horselogo.jpg" alt="Logo" />
+                <img className="app-logo" src="./assets/img/horselogo.jpg" alt="Logo" />
             </Link>
             <div className="menu-button" onClick={toggleMenu}>
-                <img src="/assets/img/menu-icon.jpg" alt="Menu" />
+                <img src="./assets/img/menu-icon.jpg" alt="Menu" />
             </div>
             <nav className={`menu-grid ${isShowMenu ? 'show' : ''}`}>
                 {navLinks.map((link) => (

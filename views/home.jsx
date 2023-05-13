@@ -18,17 +18,17 @@ export function Home() {
 			<section className="features-section">
 				<div onClick={() => onChangeRoute('/mail')}>
 					<h3>Mail App</h3>
-					<img src="../assets/img/mail-icon.png" alt="Mail Icon" />
+					<img src="./assets/img/mail-icon.png" alt="Mail Icon" />
 					<p>Manage your emails with ease</p>
 				</div>
 				<div onClick={() => onChangeRoute('/note')}>
 					<h3>Notes App</h3>
-					<img src="../assets/img/note.png" alt="Notes Icon" />
+					<img src="./assets/img/note.png" alt="Notes Icon" />
 					<p>Stay organized with notes and reminders</p>
 				</div>
 				<div onClick={() => onChangeRoute('/book')}>
 					<h3>Books App</h3>
-					<img src="../assets/img/book.png" alt="Books Icon" />
+					<img src="./assets/img/book.png" alt="Books Icon" />
 					<p>Discover and track your favorite books</p>
 				</div>
 			</section>
