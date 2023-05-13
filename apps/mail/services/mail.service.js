@@ -124,7 +124,7 @@ function _createMails() {
         mails = [
             {
                 id: 'e101',
-                status: 'inbox',
+                status: 'trash',
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
                 isRead: false,
