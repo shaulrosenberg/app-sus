@@ -1,4 +1,5 @@
 const { useEffect, useState } = React
+const { useParams, useNavigate, Outlet } = ReactRouterDOM
 
 import { NotePreview } from '../cmps/note-preview.jsx'
 import { notesService } from '../services/note.service.js'
@@ -38,16 +39,31 @@ export function NoteIndex() {
       .then(() => loadNotes())
   }
 
-  function handleUpdate(updateType, noteId, additionalInfo) {
+  function handleUpdate(updateType, noteId, additionalInfo, noteType) {
     if (updateType === 'add') {
-      setNotes([...notes, note])
-      showSuccessMsg('note added')
-    } else if (updateType === 'remove') {
-      notesService.remove(noteId).then(() => {
-        const updatedNotes = notes.filter(note => note.id !== noteId)
-        setNotes(updatedNotes)
-        showSuccessMsg(`Note (${noteId}) removed!`)
-      })
+      if (noteType === 'note-txt') {
+        notesService
+          .createNote('note-txt', additionalInfo)
+          .then(() => loadNotes())
+          .then(() => showSuccessMsg('note added'))
+      } else if (noteType === 'note-todos') {
+        notesService
+          .createNote('note-todos', additionalInfo)
+          .then(() => loadNotes())
+          .then(() => showSuccessMsg('note added'))
+      } else if (noteType === 'note-img') {
+        notesService
+          .createNote('note-img', additionalInfo)
+          .then(() => loadNotes())
+          .then(() => showSuccessMsg('note added'))
+      } else if (noteType === 'note-vid') {
+        notesService
+          .createNote('note-vid', additionalInfo)
+          .then(() => loadNotes())
+          .then(() => showSuccessMsg('note added'))
+      }
+    } else if (updateType === 'trash') {
+      onToggleAttr(noteId, 'status', 'trash')
     } else if (updateType === 'duplicate') {
       notesService.duplicateNote(noteId).then(duplicatedNote => {
         setNotes([...notes, duplicatedNote])
@@ -55,6 +71,8 @@ export function NoteIndex() {
       })
     } else if (updateType === 'bgColorChange') {
       onToggleAttr(noteId, 'style', additionalInfo)
+    } else if (updateType === 'archive') {
+      onToggleAttr(noteId, 'status', 'archived')
     }
   }
 
@@ -63,7 +81,8 @@ export function NoteIndex() {
       {/* <NotesFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
       <AddNoteSection onUpdate={handleUpdate} />
       <NoteList onUpdate={handleUpdate} notes={notes} />
-      <FilterControls />
+      <FilterControls onSetFilter={onSetFilter} filterBy={filterBy} />
+      {/* <Outlet /> */}
     </section>
   )
 }

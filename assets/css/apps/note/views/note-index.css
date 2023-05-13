@@ -1,5 +1,17 @@
 /* note index */
-
+.notes-index {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content max-content 1fr;
+  grid-template-areas:
+    'filter-controls' 'add-note-section'
+    'notes-list';
+  justify-items: center;
+  justify-content: start;
+  gap: 1.5em;
+  margin: 1em;
+}
 @media screen and (min-width: 460px) {
   .notes-index {
     margin: 0;

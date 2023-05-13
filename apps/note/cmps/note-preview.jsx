@@ -72,7 +72,11 @@ export function NotePreview({ onUpdate, note }) {
             </div>
           </div>
         )}
-        <button className="note-btn archive-btn"></button>
+        <button
+          className="note-btn archive-btn"
+          title="Archive this note"
+          onClick={() => onUpdate('archive', note.id)}
+        ></button>
         <button
           className="note-btn duplicate-btn"
           title={'Duplicate note'}
@@ -81,7 +85,7 @@ export function NotePreview({ onUpdate, note }) {
         <button
           className="note-btn bin-btn"
           title={'Delete note '}
-          onClick={() => onUpdate('remove', note.id)}
+          onClick={() => onUpdate('trash', note.id)}
         ></button>
       </div>
     </section>

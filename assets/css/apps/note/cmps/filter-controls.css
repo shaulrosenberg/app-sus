@@ -5,39 +5,80 @@
 }
 
 .light-bulb {
-  background-image: url(/assets/img/keep/light-bulb.svg);
+  font-family: Roboto;
+  background-color: transparent;
+  aspect-ratio: 1/1;
+  padding: 0.5rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+  background-image: url(../../../../img/keep/light-bulb.svg);
 }
 
-.folder-item {
+.archive-btn {
+  font-family: Roboto;
+  background-color: transparent;
+  aspect-ratio: 1/1;
+  padding: 0.5rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+  background-image: url(../../../../img/keep/archive.svg);
+}
+
+.bin-btn {
+  font-family: Roboto;
+  background-color: transparent;
+  aspect-ratio: 1/1;
+  padding: 0.5rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+  background-image: url(../../../../img/keep/bin.svg);
+}
+
+.folder-item-notes {
   display: flex;
   width: 80%;
   border-start-end-radius: 1rem;
   border-end-end-radius: 1rem;
-  align-items: center;
+  align-item-notess: center;
   padding: 10px;
   cursor: pointer;
 }
 
-.folder-item:hover {
+.folder-item-notes:hover {
   background-color: #f1f3f4;
 }
 
-.folder-item span {
+.folder-item-notes span {
   display: block;
   width: 50%;
 }
 
-.folder-icon {
+.folder-icon-notes {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 
-.folder-name {
+.folder-name-notes {
   font-family: Roboto;
   font-size: 1rem;
 }
 
-.folder-item.active {
+.folder-item-notes.active {
   background-color: #feefc3;
 }

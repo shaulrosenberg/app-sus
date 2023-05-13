@@ -11,6 +11,7 @@ export const notesService = {
   duplicateNote,
   save,
   getDefaultFilter,
+  getEmptyNote,
 }
 
 _createNotes()
@@ -54,7 +55,7 @@ function duplicateNote(noteId) {
     })
 }
 
-function createNote({ type, info }) {
+function createNote(type, info) {
   const note = {
     type,
     status: 'notes',
@@ -63,9 +64,10 @@ function createNote({ type, info }) {
     isArchived: false,
     isDeleted: false,
     info,
-    style: { backgroundColor: 'none' },
+
+    style: { backgroundColor: 'white' },
   }
-  if (note.info.todos) {
+  if (type === 'note-todos') {
     const todos = note.info.todos
 
     note.info.todos = todos.map(todo => ({
@@ -75,6 +77,20 @@ function createNote({ type, info }) {
     }))
   }
   return save(note)
+}
+
+function getEmptyNote() {
+  return {
+    type,
+    status: 'notes',
+    reminder: false,
+    isPinned: false,
+    isArchived: false,
+    isDeleted: false,
+    info,
+
+    style: { backgroundColor: 'white' },
+  }
 }
 
 function _createNotes() {
@@ -155,6 +171,7 @@ function _createNotes() {
 
       {
         id: 'n134621',
+        status: 'notes',
         createdAt: 1112222,
         type: 'note-txt',
         isPinned: true,

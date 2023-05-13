@@ -1,4 +1,5 @@
 .add-note-section {
+  margin-block: 2rem;
   grid-area: add-note-section;
   justify-self: center;
   font-family: Roboto;
@@ -8,6 +9,7 @@
 
   height: max-content;
 }
+
 .add-note-section input {
   all: unset;
 }
@@ -22,6 +24,7 @@
 .add-note-section textarea[placeholder] {
   font-family: Roboto;
 }
+
 .note-input {
   background-color: white;
   display: flex;
@@ -47,12 +50,6 @@
   gap: 5px;
 }
 
-/* .note-input {
-  flex-grow: 1;
-  padding: 14px;
-  font-family: Roboto;
-} */
-
 .add-note-btn {
   font-family: Roboto;
   background-color: transparent;
@@ -70,13 +67,7 @@
 
 .add-note-btn:hover {
   opacity: 0.87;
-  /* transition: 0.7s; */
-
   background-color: rgba(95, 99, 104, 0.157);
-  /* padding: 0.9em;
-  height: 0.9em;
-  width: 0.9em; */
-  /* border-radius: 100%; */
 }
 
 .todo-done-btn {
@@ -95,16 +86,24 @@
 
 /* txt note  */
 .note-txt-input {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   box-shadow: 0 0 12px rgb(141, 147, 154);
   box-shadow: 0 0 12px rgb(141, 147, 154);
   border-radius: 13px;
   font-size: 1.5rem;
   align-items: start;
 }
+
 .note-txt-input * {
-  margin-inline-start: 2rem;
+  padding-inline-start: 1.7rem;
+
+  margin-block-start: 1rem;
+  font-size: 0.9rem;
+}
+
+.note-txt-input input {
+  padding-inline-start: 1.3125rem;
+  margin-top: 0.7rem;
 }
 
 .note-txt-input button {
@@ -122,4 +121,117 @@
   box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.134);
   background-color: rgba(95, 99, 104, 0.157);
   border-radius: 0.7rem;
+}
+
+/* note todo  */
+.note-todos-input {
+  display: grid;
+  box-shadow: 0 0 12px rgb(141, 147, 154);
+  box-shadow: 0 0 12px rgb(141, 147, 154);
+  border-radius: 13px;
+  font-size: 1.5rem;
+  align-items: start;
+}
+
+.note-todos-input {
+  padding-inline-start: 1.3125rem;
+  margin-block: 0.5rem;
+  padding-block: 0.9rem;
+}
+
+.note-todos-input .todos-list {
+  font-size: 1rem;
+}
+
+.note-todos-input button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.5rem 1rem;
+  padding: 0.25rem 2rem;
+  /* transition: all 0.25s ease-in-out; */
+}
+
+.note-todos-input button:focus,
+.note-todos-input button:hover {
+  box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.134);
+  background-color: rgba(95, 99, 104, 0.157);
+  border-radius: 0.7rem;
+}
+
+/* video note  */
+
+.note-img-input {
+  display: grid;
+  box-shadow: 0 0 12px rgb(141, 147, 154);
+  box-shadow: 0 0 12px rgb(141, 147, 154);
+  border-radius: 13px;
+  font-size: 1.5rem;
+  align-items: start;
+  padding-inline-start: 1.3125rem;
+  margin-block: 0.5rem;
+  padding-block: 0.9rem;
+}
+
+/* .note-img-input .todos-list {
+  font-size: 1rem;
+} */
+
+.note-img-input button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.5rem 1rem;
+  padding: 0.25rem 2rem;
+  /* transition: all 0.25s ease-in-out; */
+}
+
+.note-img-input button:focus,
+.note-img-input button:hover {
+  box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.134);
+  background-color: rgba(95, 99, 104, 0.157);
+  border-radius: 0.7rem;
+}
+
+.note-img-input .url-input {
+  font-size: 1rem;
+}
+.add-note-section button:hover {
+  cursor: pointer;
+}
+
+/* video input  */
+
+.note-vid-input {
+  display: grid;
+  box-shadow: 0 0 12px rgb(141, 147, 154);
+  box-shadow: 0 0 12px rgb(141, 147, 154);
+  border-radius: 13px;
+  font-size: 1.5rem;
+  align-items: start;
+  padding-inline-start: 1.3125rem;
+  margin-block: 0.5rem;
+  padding-block: 0.9rem;
+}
+
+.note-vid-input button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.5rem 1rem;
+  padding: 0.25rem 2rem;
+  /* transition: all 0.25s ease-in-out; */
+}
+.note-vid-input button:focus,
+.note-vid-input button:hover {
+  box-shadow: 1px 1px 2px rgba(21, 21, 21, 0.134);
+  background-color: rgba(95, 99, 104, 0.157);
+  border-radius: 0.7rem;
+}
+
+.note-vid-input .url-input {
+  font-size: 1rem;
 }

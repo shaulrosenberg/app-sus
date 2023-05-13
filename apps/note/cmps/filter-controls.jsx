@@ -19,25 +19,31 @@ export function FilterControls({ onSetFilter, filterBy }) {
     <ul className="filter-controls">
       <li
         onClick={() => onChangeFolder('notes')}
-        className={`folder-item ${activeFolder === 'notes' ? 'active' : ''}`}
+        className={`folder-item-notes ${
+          activeFolder === 'notes' ? 'active' : ''
+        }`}
       >
         <span className="light-bulb"></span>
-        <span className="folder-name">Notes</span>
+        <span className="folder-name-notes">Notes</span>
       </li>
       <li
         onClick={() => onChangeFolder('archived')}
-        className={`folder-item ${activeFolder === 'archived' ? 'active' : ''}`}
+        className={`folder-item-notes ${
+          activeFolder === 'archived' ? 'active' : ''
+        }`}
       >
-        <span className="folder-icon"></span>
-        <span className="folder-name">Archived</span>
+        <span className="archive-btn"></span>
+        <span className="folder-name-notes">Archived</span>
       </li>
 
       <li
         onClick={() => onChangeFolder('trash')}
-        className={`folder-item ${activeFolder === 'trash' ? 'active' : ''}`}
+        className={`folder-item-notes ${
+          activeFolder === 'trash' ? 'active' : ''
+        }`}
       >
-        <span className="folder-icon"></span>
-        <span className="folder-name">Trash</span>
+        <span className="bin-btn"></span>
+        <span className="folder-name-notes">Trash</span>
       </li>
     </ul>
   )
