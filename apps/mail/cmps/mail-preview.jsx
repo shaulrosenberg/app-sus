@@ -49,8 +49,14 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
         setIsStarred(prevIsStarred => !prevIsStarred)
     }
 
-    let from = mail.from.split('@')[0]
-    if (from.charAt(0) === '<') from = from.substring(1)
+    function getSender() {
+        if(mail.status === 'sent') return `to: ${mail.to.split('@')[0]}`
+
+        let sender =  mail.from.split('@')[0]
+        if (sender.charAt(0) === '<') sender = sender.substring(1)
+        return sender
+    }
+    
     const sentAt = new Date(mail.sentAt).toLocaleString()
 
     // color classes
@@ -61,7 +67,7 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
         <Fragment>
             <tr className={`mail-preview ${rowClass}`} onMouseEnter={showControls} onMouseLeave={hideControls} onClick={onClickPreview}>
                 <td className={`mail-star ${starClass}`} onClick={onStarred}>★</td>
-                <td className="sender">{from}</td>
+                <td className="sender">{getSender()}</td>
                 <td className="subject"><span>{mail.subject}</span><span className="subject-separator">-</span><LongTxt txt={mail.body} length={PREVIEW_LENGTH} /></td>
                 <td className="timestamp">
                     {!isShowControls && sentAt}
