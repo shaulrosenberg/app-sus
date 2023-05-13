@@ -347,8 +347,8 @@ function _createMails() {
                 isStarred: false,
                 sentAt: 1650595200000, // April 22, 2022, 12:00 PM UTC
                 removedAt: null,
-                from: 'sales@companyname.com',
-                to: 'user@appsus.com',
+                from: 'user@appsus.com',
+                to: 'sales@companyname.com',
             },
             {
                 id: 'e120',
@@ -359,8 +359,8 @@ function _createMails() {
                 isStarred: false,
                 sentAt: 1650412800000, // April 20, 2022, 12:00 PM UTC
                 removedAt: null,
-                from: 'marketing@companyname.com',
-                to: 'user@appsus.com',
+                from: 'user@appsus.com',
+                to: 'marketing@companyname.com',
             },
             {
                 id: 'e121',
@@ -371,8 +371,8 @@ function _createMails() {
                 isStarred: false,
                 sentAt: 1650220800000, // April 18, 2022, 12:00 PM UTC
                 removedAt: null,
-                from: 'webinars@companyname.com',
-                to: 'user@appsus.com',
+                from: 'user@appsus.com',
+                to: 'webinars@companyname.com',
             },
             {
                 id: 'e122',
@@ -383,8 +383,8 @@ function _createMails() {
                 isStarred: false,
                 sentAt: 1650038400000, // April 16, 2022, 12:00 PM UTC
                 removedAt: null,
-                from: 'newsletter@companyname.com',
-                to: 'user@appsus.com',
+                from: 'user@appsus.com',
+                to: 'newsletter@companyname.com',
             },
             {
                 id: 'e123',
@@ -395,8 +395,8 @@ function _createMails() {
                 isStarred: false,
                 sentAt: 1649856000000, // April 14, 2022, 12:00 PM UTC
                 removedAt: null,
-                from: 'security@companyname.com',
-                to: 'user@appsus.com',
+                from: 'user@appsus.com',
+                to: 'security@companyname.com',
             }
         ]
         utilService.saveToStorage(MAIL_KEY, mails)

@@ -50,7 +50,7 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
     }
 
     function getSender() {
-        if(mail.status === 'sent') return `to: ${mail.from.split('@')[0]}`
+        if(mail.status === 'sent') return `to: ${mail.to.split('@')[0]}`
 
         let sender =  mail.from.split('@')[0]
         if (sender.charAt(0) === '<') sender = sender.substring(1)
