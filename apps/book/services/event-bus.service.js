@@ -32,21 +32,10 @@ export function showErrorMsg(txt) {
 }
 
 
-
-
-
-// Service Testing:
-// Example for using the service
 const unsubscribe = eventBusService.on('some-event', (data) => {
     console.log('Got some-event:', data)
 })
 
-eventBusService.emit('some-event', { num: 100 })
-// Just as example - unsubscribe after 2 secs
-// setTimeout(() => {
-//     unsubscribe()
-// }, 2000)
-setTimeout(() => eventBusService.emit('some-event', 100), 3000)
 unsubscribe()
 
 

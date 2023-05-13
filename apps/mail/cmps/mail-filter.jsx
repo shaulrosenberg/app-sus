@@ -1,8 +1,9 @@
+import { utilService } from "../../../services/util.service.js"
+
 const { useState, useEffect } = React
 
 export function MailFilter({ filterBy, onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-
 
     useEffect(() => {
         onSetFilter(filterByToEdit)
@@ -19,6 +20,9 @@ export function MailFilter({ filterBy, onSetFilter }) {
         onSetFilter(filterByToEdit)
     }
 
+    // doesn't work for some reason
+    const debouncedHandleChange = utilService.debounce(handleChange, 300)
+
     const { txt } = filterByToEdit
 
     return (
@@ -26,7 +30,7 @@ export function MailFilter({ filterBy, onSetFilter }) {
             {/* <button className="mail-hamburger"></button> */}
             <form onSubmit={onSubmitFilter}>
                 <div className="search-container">
-                    <input className="search-input" value={txt} onChange={handleChange} name="txt" id="txt" type="text" placeholder="Search mail" />
+                    <input className="search-input" value={txt} onChange={handleChange} name="txt" type="text" placeholder="Search mail" />
                     <div className="search-icon"></div>
                 </div>
             </form>

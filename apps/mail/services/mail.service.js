@@ -35,7 +35,7 @@ function query(filterBy = {}) {
                     regExp.test(mail.subject) ||
                     regExp.test(mail.from) ||
                     regExp.test(mail.body)
-            );
+            )
         }
 
         if (status === 'starred') {
