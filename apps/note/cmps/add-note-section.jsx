@@ -69,7 +69,6 @@ export function AddNoteSection(props) {
     if (title.trim() === '' && url.trim() === '') {
       return
     }
-    debugger
     props.onUpdate('add', null, { title: title, url: url }, 'note-vid')
 
     setTitle('')

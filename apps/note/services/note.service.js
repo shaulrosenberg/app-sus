@@ -105,10 +105,15 @@ function _createNotes() {
         isArchived: true,
         isDeleted: false,
         info: {
-          title: 'chilling todos!!',
+          title: 'For Tomorrow!!',
           txt: '',
           url: null,
           todos: [
+            {
+              id: '54431324',
+              txt: 'listen to yaron give a cr',
+              isChecked: true,
+            },
             {
               id: '54324',
               txt: 'pick up the cat from school',
@@ -121,18 +126,18 @@ function _createNotes() {
             },
             {
               id: 'fd4432sf43u',
-              txt: 'ppay rent',
+              txt: 'tell yonatan he is so sexy',
               isChecked: false,
             },
             {
               id: '4350vcx',
-              txt: 'call my love',
+              txt: 'call my love 💘',
               isChecked: false,
             },
           ],
         },
         style: {
-          backgroundColor: '#B4FF9F',
+          backgroundColor: '#F9FFA4',
         },
       },
       {
@@ -175,8 +180,8 @@ function _createNotes() {
         createdAt: 1112222,
         type: 'note-txt',
         isPinned: true,
-        style: { backgroundColor: '#B4FF9F' },
-        info: { title: 'only adam', txt: 'in adam we trust!' },
+        style: { backgroundColor: '#FFD59E' },
+        info: { title: 'only stav', txt: 'in stav we trust!' },
       },
       {
         id: 'bjfhjsd',
@@ -190,7 +195,7 @@ function _createNotes() {
           title: 'some greenery',
         },
         style: {
-          backgroundColor: '#B4FF9F',
+          backgroundColor: '#FFA1A1',
         },
       },
     ]
