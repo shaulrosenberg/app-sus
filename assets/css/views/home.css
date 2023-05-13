@@ -1,8 +1,76 @@
- /* home */
- .homepage {
-    background-color: #f2f2f2;
-    /* You can also set a background image here */
-  }
-  
+.home {
+  font-family: Roboto;
+  text-align: center;
+  padding: 2rem;
+}
 
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
 
+.hero-section {
+  margin-bottom: 4rem;
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+.features-section div {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+}
+
+.features-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.features-section img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.features-section p {
+  font-size: 1rem;
+}
+
+.features-section div {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.features-section div:hover {
+  background-color: #d9d9d9;
+  transform: scale(1.05);
+}
+
+.features-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.features-section img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.features-section p {
+  font-size: 1rem;
+}
