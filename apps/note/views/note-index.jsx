@@ -55,12 +55,10 @@ export function NoteIndex() {
         notesService
           .createNote('note-img', additionalInfo)
           .then(() => loadNotes())
-          .then(() => showSuccessMsg('note added'))
       } else if (noteType === 'note-vid') {
         notesService
           .createNote('note-vid', additionalInfo)
           .then(() => loadNotes())
-          .then(() => showSuccessMsg('note added'))
       }
     } else if (updateType === 'trash') {
       onToggleAttr(noteId, 'status', 'trash')
