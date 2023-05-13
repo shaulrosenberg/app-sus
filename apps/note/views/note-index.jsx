@@ -9,16 +9,22 @@ import {
   showErrorMsg,
 } from '../../../services/event-bus.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
+import { NotesFilter } from '../cmps/notes-filter.jsx'
 
 export function NoteIndex() {
   const [notes, setNotes] = useState([])
+  const [filterBy, setFilterBy] = useState(notesService.getDefaultFilter())
+
   useEffect(() => {
     loadNotes()
-    showSuccessMsg('Welcome to notes baby')
-  }, [])
+  }, [filterBy])
+
+  function onSetFilter(filterBy) {
+    setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
+  }
 
   function loadNotes() {
-    notesService.query().then(notes => setNotes(notes))
+    notesService.query(filterBy).then(notes => setNotes(notes))
   }
 
   function onToggleAttr(noteId, attr, value) {
@@ -54,6 +60,7 @@ export function NoteIndex() {
 
   return (
     <section className="notes-index">
+      {/* <NotesFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
       <AddNoteSection onUpdate={handleUpdate} />
       <NoteList onUpdate={handleUpdate} notes={notes} />
       <FilterControls />

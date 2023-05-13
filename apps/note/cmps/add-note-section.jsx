@@ -93,14 +93,32 @@ export function AddNoteSection(props) {
     if (!expanded) {
       return (
         <div className="note-input" onClick={() => handleExpand('note-txt')}>
-          <span className="placeholder">Whats on your mind...?</span>
+          <p className="placeholder">Whats on your mind...?</p>
+          <div className="note-type-selection-container">
+            <button
+              className="add-note-btn todo-done-btn"
+              title="New note with todo a list"
+              onClick={() => handleExpand('note-todos')}
+            ></button>
+
+            <button
+              className="add-note-btn add-img-btn"
+              title="New note with image"
+              onClick={() => handleExpand('note-image')}
+            ></button>
+            <button
+              className="add-note-btn add-vid-btn"
+              title="New note with video"
+              onClick={() => handleExpand('note-video')}
+            ></button>
+          </div>
         </div>
       )
     }
 
     if (noteType === 'note-txt') {
       return (
-        <div className="note-input">
+        <div className="note-txt-input">
           <input
             type="text"
             placeholder="Title"
@@ -112,7 +130,10 @@ export function AddNoteSection(props) {
             value={txt}
             onChange={e => setTxt(e.target.value)}
           />
-          <button onClick={handleCreateNote}>Create</button>
+          <div className="add-note-type-controls">
+            <button onClick={handleCreateNote}>Create</button>
+            <button onClick={() => setExpanded(false)}>Cancel</button>
+          </div>
         </div>
       )
     }
@@ -197,23 +218,5 @@ export function AddNoteSection(props) {
       .then(note => props.onUpdate('add', null, note))
   }
 
-  return (
-    <section className="add-note-section">
-      {renderContent()}
-      <div className="note-type-buttons">
-        <button
-          className="add-note-btn todo-done-btn"
-          onClick={() => handleExpand('note-todos')}
-        ></button>
-        <button
-          className="add-note-btn add-img-btn"
-          onClick={() => handleExpand('note-image')}
-        ></button>
-        <button
-          className="add-note-btn add-vid-btn"
-          onClick={() => handleExpand('note-video')}
-        ></button>
-      </div>
-    </section>
-  )
+  return <section className="add-note-section">{renderContent()}</section>
 }

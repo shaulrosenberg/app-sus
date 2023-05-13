@@ -10,12 +10,18 @@ export const notesService = {
   get,
   duplicateNote,
   save,
+  getDefaultFilter,
 }
 
 _createNotes()
 
-function query() {
-  return storageService.query(NOTES_STORAGE_KEY).then(notes => notes)
+function query(filterBy = {}) {
+  return storageService.query(NOTES_STORAGE_KEY).then(notes => {
+    if (filterBy.status) {
+      notes = notes.filter(note => note.status === filterBy.status)
+    }
+    return notes
+  })
 }
 
 function save(note) {
@@ -51,6 +57,7 @@ function duplicateNote(noteId) {
 function createNote({ type, info }) {
   const note = {
     type,
+    status: 'notes',
     reminder: false,
     isPinned: false,
     isArchived: false,
@@ -76,8 +83,8 @@ function _createNotes() {
     notes = [
       {
         id: 'fjf4301',
+        status: 'notes',
         type: 'note-todos',
-        reminder: 0,
         isPinned: false,
         isArchived: true,
         isDeleted: false,
@@ -109,12 +116,13 @@ function _createNotes() {
           ],
         },
         style: {
-          backgroundColor: '#43435',
+          backgroundColor: '#B4FF9F',
         },
       },
       {
         id: '4532f',
         createdAt: 1111222,
+        status: 'notes',
         type: 'note-vid',
         isPinned: false,
         isArchived: false,
@@ -126,11 +134,12 @@ function _createNotes() {
           todos: [],
         },
         style: {
-          backgroundColor: '#cb4f8',
+          backgroundColor: '#B4FF9F',
         },
       },
       {
         id: '4gfdgjq',
+        status: 'notes',
         type: 'note-img',
         isPinned: false,
         isArchived: false,
@@ -140,17 +149,8 @@ function _createNotes() {
           title: 'The sea is so blue',
         },
         style: {
-          backgroundColor: '#fohc4s',
+          backgroundColor: '#B4FF9F',
         },
-      },
-
-      {
-        id: 'n1031',
-        createdAt: 1112222,
-        type: 'note-txt',
-        isPinned: true,
-        style: { backgroundColor: '#00d' },
-        info: { title: 'love is true', txt: 'Fullstack Me Baby!' },
       },
 
       {
@@ -158,11 +158,12 @@ function _createNotes() {
         createdAt: 1112222,
         type: 'note-txt',
         isPinned: true,
-        style: { backgroundColor: '#00d' },
+        style: { backgroundColor: '#B4FF9F' },
         info: { title: 'only adam', txt: 'in adam we trust!' },
       },
       {
         id: 'bjfhjsd',
+        status: 'notes',
         type: 'note-img',
         isPinned: false,
         isArchived: false,
@@ -172,51 +173,20 @@ function _createNotes() {
           title: 'some greenery',
         },
         style: {
-          backgroundColor: '#fohc4s',
+          backgroundColor: '#B4FF9F',
         },
-      },
-
-      {
-        id: 'n13bf21',
-        createdAt: 1112222,
-        type: 'note-txt',
-        isPinned: true,
-        style: { backgroundColor: '#00d' },
-        info: { title: 'only adam', txt: 'in adam we trust!' },
-      },
-      {
-        id: 'nsan101',
-        createdAt: 1112222,
-        type: 'note-txt',
-        isPinned: true,
-        style: { backgroundColor: '#00d' },
-        info: { title: 'love is true', txt: 'Fullstack Me Baby!' },
-      },
-      {
-        id: 'n13b21',
-        createdAt: 1112222,
-        type: 'note-txt',
-        isPinned: true,
-        style: { backgroundColor: '#00d' },
-        info: { title: 'only adam', txt: 'in adam we trust!' },
-      },
-      {
-        id: 'n132221',
-        createdAt: 1112222,
-        type: 'note-txt',
-        isPinned: true,
-        style: { backgroundColor: '#00d' },
-        info: { title: 'only adam', txt: 'in adam we trust!' },
-      },
-      {
-        id: 'n13f21',
-        createdAt: 1112222,
-        type: 'note-txt',
-        isPinned: true,
-        style: { backgroundColor: '#00d' },
-        info: { title: 'only adam', txt: 'in adam we trust!' },
       },
     ]
   }
   utilService.saveToStorage(NOTES_STORAGE_KEY, notes)
+}
+
+function getDefaultFilter() {
+  return {
+    status: 'notes', //main notes page
+    txt: '', // no need to support complex text search
+    reminder: false,
+    isPinned: true, // (optional property, if missing: show all)
+    isDeleted: true, // (optional property, if missing: show all)
+  }
 }
