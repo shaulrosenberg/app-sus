@@ -1,12 +1,10 @@
-/* mail list */
-
-
 /* Styles for the mail list table */
 .mail-list {
     width: 100%;
     max-width: 480px;
     border-collapse: collapse;
     align-self: start;
+    overflow-x: auto; /* Updated property to enable horizontal scrolling */
 }
 
 /* Styles for the mail preview table row */
@@ -22,6 +20,7 @@
 /* Styles for the mail preview content cells */
 .mail-list td {
     padding: 10px;
+    white-space: nowrap; /* Added property to prevent wrapping */
 }
 
 .mail-list .sender {
@@ -33,6 +32,7 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    white-space: nowrap; /* Added property to prevent wrapping */
 }
 
 .mail-list .subject span {
@@ -65,9 +65,6 @@
     color: #000;
     font-weight: bold;
 }
-
-
-
 
 @media screen and (min-width: 480px) {
     .mail-list {

@@ -2,13 +2,15 @@ const { useState } = React
 const { useNavigate } = ReactRouterDOM
 
 
-
 export function MailFolders({ onSetFilter, filterBy, countMailMap }) {
     const [activeFolder, setActiveFolder] = useState(filterBy.status || 'inbox')
     const navigate = useNavigate()
 
     function onChangeFolder(folderName) {
         const newFilter = { ...filterBy, status: folderName }
+        if(newFilter.status !== 'isStarred') {
+            newFilter.isS
+        }
         setActiveFolder(folderName)
         onSetFilter(newFilter)
         navigate('/mail')

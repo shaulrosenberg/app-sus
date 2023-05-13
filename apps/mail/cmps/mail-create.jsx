@@ -1,4 +1,4 @@
-const { useState, useEffect } = React
+const { useState } = React
 const { Link, useNavigate, useParams } = ReactRouterDOM
 
 import { mailService } from "../services/mail.service.js"
@@ -14,8 +14,7 @@ export function MailCreate({ onCloseMailModal, onAddMail }) {
 
     function onSaveMail(ev) {
         ev.preventDefault()
-        const newMail = {...mailToEdit}
-        newMail.status = 'sent'
+        const newMail = {...mailToEdit, status: 'sent'}
         console.log(newMail)
         onAddMail(newMail)
     }

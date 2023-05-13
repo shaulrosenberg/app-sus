@@ -45,16 +45,23 @@ function query(filterBy = {}) {
         //     )
         // }
 
+        // status.starred and isStarred are different...
+
         // if (isStarred !== undefined) {
         //     mails = mails.filter(
         //         mail =>
-        //             mail.isStarred === isStarred
+        //             mail.isStarred === isStarred && mail.status === 'starred'
         //     )
         // }
 
-        if (filterBy.status) {
-            mails = mails.filter(mail => mail.status === filterBy.status)
+        if (status) {
+            mails = mails.filter(mail => mail.status === status)
         }
+
+        // if (status === 'starred') {
+        //     console.log('entered')
+        //     mails = mails.filter(mail => mail.isStarred)
+        // }
 
         return mails
     })
@@ -122,7 +129,7 @@ function getDefaultFilter() {
         status: 'inbox',
         txt: '', // no need to support complex text search
         isRead: true, // (optional property, if missing: show all)
-        isStarred: true, // (optional property, if missing: show all)
+        // isStarred: true, // (optional property, if missing: show all)
         labels: [], // empty array or remove the property
     };
 }

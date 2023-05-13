@@ -81,7 +81,6 @@ export function MailIndex() {
     if (!mails) return <h2>Loading...</h2>
     return (
         <div className="mail-index">
-            {/* render folders - they are also filters(status) */}
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <MailCompose onOpenMailModal={onOpenMailModal} />
             <MailFolders onSetFilter={onSetFilter} filterBy={filterBy} countMailMap={countMailMap.current} />
