@@ -103,7 +103,7 @@ function countMailElements(mailArray) {
 
     mailArray.forEach(mail => {
         const entityType = mail.status
-        if (entityTypeMap.hasOwnProperty(entityType)) {
+        if (entityTypeMap[entityType]) {
             entityTypeMap[entityType]++
         } else {
             entityTypeMap[entityType] = 1

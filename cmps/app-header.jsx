@@ -27,7 +27,7 @@ export function AppHeader() {
         },
         {
             path: '/note',
-            logoSrc: '../assets/img/note.png',
+            logoSrc: '/assets/img/note.png',
             name: 'Note',
         },
     ];
