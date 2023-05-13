@@ -12,7 +12,7 @@ export function About() {
             we built this amazing React app and had a great time learning and
             collaborating together.
           </p>
-          <img src="../assets/img/shaul.svg" alt="" />
+          <img src="./assets/img/shaul.svg" alt="" />
         </div>
         <div className="description">
           <h3>Shaul Rosenberg</h3>
@@ -23,7 +23,7 @@ export function About() {
             with Adam was a fantastic experience, and together we created an
             incredible React app that we're proud of.
           </p>
-          <img src="../assets/img/adam.svg" alt="" />
+          <img src="./assets/img/adam.svg" alt="" />
         </div>
       </div>
     </section>
