@@ -24,7 +24,79 @@ nav a.active {
 }
 
 .app-logo {
-    height: 80px;
-    margin-inline-start: 3.2px;
-    object-fit: cover;
+    display: block;
+    width: 100px;
+    /* Adjust the width according to your needs */
+    height: auto;
+    margin-right: 10px;
+}
+
+
+.menu-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    z-index: 998;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.menu-grid.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-link-logo {
+    display: block;
+    width: 50px;
+    /* Adjust the width according to your needs */
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.nav-link-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.menu-grid a.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    color: #333333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.menu-grid a.nav-link:hover {
+    background-color: #dddddd;
+}
+
+.menu-grid a.nav-link.active {
+    background-color: #0066ff;
+    color: #ffffff;
+}
+
+.menu-grid a.nav-link.active:hover {
+    background-color: #0052cc;
 }
