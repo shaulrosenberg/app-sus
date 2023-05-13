@@ -112,7 +112,7 @@ function _createNotes() {
             {
               id: '54431324',
               txt: 'listen to yaron give a cr',
-              isChecked: true,
+              isChecked: false,
             },
             {
               id: '54324',
@@ -159,6 +159,18 @@ function _createNotes() {
         },
       },
       {
+        id: 'n293258476',
+        status: 'notes',
+        createdAt: 3334444,
+        type: 'note-txt',
+        isPinned: true,
+        style: { backgroundColor: '#FFD59E' },
+        info: {
+          title: 'watch the eurovision ',
+          txt: 'and vote for noa!',
+        },
+      },
+      {
         id: '4gfdgjq',
         status: 'notes',
         type: 'note-img',
@@ -173,6 +185,18 @@ function _createNotes() {
           backgroundColor: '#B4FF9F',
         },
       },
+      {
+        id: 'n1343232621',
+        status: 'notes',
+        createdAt: 1112222,
+        type: 'note-txt',
+        isPinned: true,
+        style: { backgroundColor: '#FFD59E' },
+        info: {
+          title: 'Meeting Notes',
+          txt: 'Discuss project timeline and deliverables.',
+        },
+      },
 
       {
         id: 'n134621',
@@ -180,11 +204,12 @@ function _createNotes() {
         createdAt: 1112222,
         type: 'note-txt',
         isPinned: true,
-        style: { backgroundColor: '#FFD59E' },
+        style: { backgroundColor: '#FFA1A1' },
         info: { title: 'only stav', txt: 'in stav we trust!' },
       },
+
       {
-        id: 'bjfhjsd',
+        id: 'bj322325',
         status: 'notes',
         type: 'note-img',
         isPinned: false,
@@ -196,6 +221,21 @@ function _createNotes() {
         },
         style: {
           backgroundColor: '#FFA1A1',
+        },
+      },
+      {
+        id: 'bjfhjsd',
+        status: 'notes',
+        type: 'note-img',
+        isPinned: false,
+        isArchived: false,
+        isDeleted: false,
+        info: {
+          url: 'https://images.unsplash.com/photo-1683752590938-e3b687c1f344?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80',
+          title: 'go hiking',
+        },
+        style: {
+          backgroundColor: '#F9FFA4',
         },
       },
     ]

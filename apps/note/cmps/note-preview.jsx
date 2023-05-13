@@ -29,12 +29,11 @@ export function NotePreview({ onUpdate, note }) {
             <div
               className="item"
               key={color}
-              style={{ backgroundColor: color, width: '30px', height: '30px' }}
+              style={{ backgroundColor: color, width: '25px', height: '25px' }}
               onClick={() => onChooseColor(color)}
             ></div>
           ))}
         </div>
-        <h3>pick a color!</h3>
       </section>
     )
   }
@@ -66,9 +65,17 @@ export function NotePreview({ onUpdate, note }) {
               background: 'rgba(0, 0, 0, 0.5)',
             }}
           >
-            <div style={{ background: '#fff', padding: '20px' }}>
+            <div
+              className="color-choice-modal"
+              style={{
+                background: 'aliceblue',
+                padding: '10px',
+              }}
+            >
               <ColorInput onUpdate={onUpdate} />
-              <button onClick={closeModal}>Close</button>
+              <button className="close-modal-btn" onClick={closeModal}>
+                Close
+              </button>
             </div>
           </div>
         )}
@@ -131,7 +138,7 @@ function NoteImg(props) {
   return (
     <div className="note-preview-content-note-img">
       <img src={url} alt="use-img" />
-      <h3>{title}</h3>
+      <h4>{title}</h4>
     </div>
   )
 }
