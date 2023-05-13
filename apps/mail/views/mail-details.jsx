@@ -55,8 +55,8 @@ export function MailDetails() {
         navigate(`/mail/${nextMailId}`)
     }
 
-    function loadNextMail() {
-        
+    function onReplyMail(mailId) {
+
     }
 
     if (!mail) return <h2 className="mail-loader">Loading...</h2>

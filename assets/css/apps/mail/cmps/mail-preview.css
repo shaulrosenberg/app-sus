@@ -8,10 +8,12 @@
 
 .mail-star.gray {
     color: lightgrey;
+    font-weight: bold;
 }
 
 .mail-star.yellow {
     color: yellow;
+    font-weight: bold;
 }
 
 .fa {
