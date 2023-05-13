@@ -129,7 +129,7 @@ function _createMails() {
                 body: 'Would love to catch up sometimes',
                 isRead: false,
                 isStarred: false,
-                sentAt: 1551133930594,
+                sentAt: Date.now(),
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com',

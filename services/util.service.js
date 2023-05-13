@@ -8,8 +8,9 @@ export const utilService = {
     getMonthName,
     debounce,
     loadFromStorage,
-    saveToStorage
+    saveToStorage,
 }
+
 
 function debounce(func, wait) {
     let timeout

@@ -3,6 +3,7 @@ const { Link, useNavigate } = ReactRouterDOM
 const PREVIEW_LENGTH = 50
 
 import { LongTxt } from "../../../cmps/long-txt.jsx"
+import { utilService } from "../../../services/util.service.js"
 
 // Mail Preview
 export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
@@ -50,14 +51,26 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
     }
 
     function getSender() {
-        if(mail.status === 'sent') return `to: ${mail.to.split('@')[0]}`
+        if (mail.status === 'sent') return `to: ${mail.to.split('@')[0]}`
 
-        let sender =  mail.from.split('@')[0]
+        let sender = mail.from.split('@')[0]
         if (sender.charAt(0) === '<') sender = sender.substring(1)
         return sender
     }
-    
-    const sentAt = new Date(mail.sentAt).toLocaleString()
+
+    // const sentAt = new Date(mail.sentAt).toLocaleString()
+    function getDateFormat() {
+        const options = {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+        }
+
+        return new Date(mail.sentAt).toLocaleString(undefined, options)
+    }
 
     // color classes
     let starClass = isStarred ? 'yellow' : 'gray'
@@ -70,7 +83,7 @@ export function MailPreview({ mail, onDeleteMail, onToggleAttr }) {
                 <td className="sender">{getSender()}</td>
                 <td className="subject"><span>{mail.subject}</span><span className="subject-separator">-</span><LongTxt txt={mail.body} length={PREVIEW_LENGTH} /></td>
                 <td className="timestamp">
-                    {!isShowControls && sentAt}
+                    {!isShowControls && getDateFormat()}
                     {isShowControls &&
                         <div className="list-item-controls">
                             <button onClick={onRemoveMail} className="fa fa-trash" title="Move to trash"></button>
