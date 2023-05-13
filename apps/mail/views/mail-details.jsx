@@ -39,10 +39,10 @@ export function MailDetails() {
             <div className="mail-details-header">
                 <button onClick={() => navigate('/mail')}>Back</button>
                 <div>
-                    <button>reply</button>
-                    <button>trash</button>
-                    <button>export note</button>
-                    <button>mark starred</button>
+                    <button>Reply</button>
+                    <button onClick={() => {mailService.remove(mail.id)}}>trash</button>
+                    <button>Export note</button>
+                    <button>Mark starred</button>
                 </div>
             </div>
 

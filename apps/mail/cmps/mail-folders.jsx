@@ -8,9 +8,6 @@ export function MailFolders({ onSetFilter, filterBy, countMailMap }) {
 
     function onChangeFolder(folderName) {
         const newFilter = { ...filterBy, status: folderName }
-        if(newFilter.status !== 'isStarred') {
-            newFilter.isS
-        }
         setActiveFolder(folderName)
         onSetFilter(newFilter)
         navigate('/mail')
