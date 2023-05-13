@@ -89,12 +89,12 @@ function getEmptyMail() {
     }
 }
 
-function countMailElements(mailArray) {
+function countMailElements(mails) {
     const entityTypeMap = {}
   
-    mailArray.forEach((mail) => {
+    mails.forEach((mail) => {
       const entityType = mail.status
-      if (entityTypeMap.hasOwnProperty(entityType)) {
+      if (entityTypeMap[entityType]) {
         entityTypeMap[entityType]++
       } else {
         entityTypeMap[entityType] = 1

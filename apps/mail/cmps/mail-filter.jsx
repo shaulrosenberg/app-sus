@@ -23,7 +23,7 @@ export function MailFilter({ filterBy, onSetFilter }) {
 
     return (
         <section className="mail-filter">
-            <button className="mail-hamburger">ham</button>
+            {/* <button className="mail-hamburger"></button> */}
             <form onSubmit={onSubmitFilter}>
                 <div className="search-container">
                     <input className="search-input" value={txt} onChange={handleChange} name="txt" id="txt" type="text" placeholder="Search mail" />

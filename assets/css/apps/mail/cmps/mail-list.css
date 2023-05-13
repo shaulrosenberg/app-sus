@@ -4,6 +4,7 @@
 /* Styles for the mail list table */
 .mail-list {
     width: 100%;
+    max-width: 480px;
     border-collapse: collapse;
     align-self: start;
 }
@@ -31,6 +32,7 @@
     color: #777;
     display: flex;
     justify-content: flex-start;
+    width: 100%;
 }
 
 .mail-list .subject span {
@@ -71,5 +73,6 @@
     .mail-list {
         grid-column: 2;
         grid-row: 2;
+        max-width: 100%;
     }
 }

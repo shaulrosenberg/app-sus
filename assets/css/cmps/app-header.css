@@ -22,3 +22,9 @@ nav a.active {
     font-weight: bold;
     text-decoration: overline;
 }
+
+.app-logo {
+    height: 80px;
+    margin-inline-start: 3.2px;
+    object-fit: cover;
+}
