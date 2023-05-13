@@ -141,7 +141,7 @@ function _createMails() {
                 body: 'Shinjuro and 55 others made changes in your shared folders',
                 isRead: false,
                 isStarred: true,
-                sentAt: 1551133930594,
+                sentAt: 1659845400000,
                 removedAt: null,
                 from: '<no-reply@dropbox.com>',
                 to: 'user@appsus.com',
@@ -153,7 +153,7 @@ function _createMails() {
                 body: '3 new jobs in Israel match your preferences.',
                 isRead: false,
                 isStarred: false,
-                sentAt: 1551133930594,
+                sentAt: 1672172400000,
                 removedAt: null,
                 from: '<jobalerts-noreply@linkedin.com>',
                 to: 'user@appsus.com',
@@ -165,7 +165,7 @@ function _createMails() {
                 body: "Let's plan a vacation together. Any preferences?",
                 isRead: true,
                 isStarred: false,
-                sentAt: 1551133969976,
+                sentAt: 1683967200000,
                 removedAt: null,
                 from: 'friend@example.com',
                 to: 'user@appsus.com',
@@ -177,7 +177,7 @@ function _createMails() {
                 body: 'We have an exciting job opportunity for you. Are you interested?',
                 isRead: false,
                 isStarred: false,
-                sentAt: 1551133983103,
+                sentAt: 1607322600000,
                 removedAt: null,
                 from: 'recruiter@company.com',
                 to: 'user@appsus.com',
@@ -398,7 +398,8 @@ function _createMails() {
                 from: 'user@appsus.com',
                 to: 'security@companyname.com',
             }
-        ]
+        ].sort((a, b) => b.sentAt - a.sentAt)
+
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
