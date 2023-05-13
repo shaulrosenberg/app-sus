@@ -1,0 +1,78 @@
+.mail-hamburger {
+    position: relative;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+}
+
+.mail-hamburger::before,
+.mail-hamburger::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: transform 0.3s ease;
+}
+
+.mail-hamburger::before {
+    top: 0;
+}
+
+.mail-hamburger::after {
+    bottom: 0;
+}
+
+
+.mail-hamburger.open::before {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mail-hamburger.open::after {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+
+/* mobile navbar */
+.mobile-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 999;
+}
+
+.mobile-navbar .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.mobile-navbar .menu {
+    display: none;
+}
+
+.mobile-navbar .menu-item {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-navbar .menu {
+        display: block;
+    }
+
+    .mobile-navbar .menu-item {
+        display: inline-block;
+    }
+}

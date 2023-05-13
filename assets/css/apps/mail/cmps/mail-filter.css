@@ -2,12 +2,25 @@
 
 .mail-filter {
     align-self: center;
+    grid-column: 1/-1;
+    grid-row: 1;
+    /* edited */
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mail-filter .search-container {
     position: relative;
     display: inline-block;
-    width: 300px;
+}
+
+.mail-filter form {
+    /* edited */
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 /* Input field */
@@ -39,4 +52,25 @@
 .mail-filter .search-input:focus {
     outline: none;
     box-shadow: 0 0 3px #6cb6f1;
+}
+
+
+
+@media screen and (min-width: 480px) {
+    .mail-filter {
+        grid-row: 1;
+        grid-column: 2;
+        width: 50vw;
+        max-width: 650px;
+        justify-self: start;
+        display: block;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .mail-filter form {
+        width: 100%;
+    }
 }
