@@ -32,6 +32,28 @@ export function MailDetails() {
             .then(setNextMailId)
     }
 
+    function onClickTrash(mailId) {
+        if (mail.status === 'trash') {
+            mailService.remove(mailId)
+                .then(() => navigate('/mail'))
+        }
+
+        onToggleAttr(mailId, 'status', 'trash')
+        navigate('/mail')
+    }
+
+    function onToggleAttr(mailId, attr, value) {
+        return mailService.get(mailId)
+            .then(mail => {
+                mail[attr] = value
+                return mail
+            })
+            .then(mailService.save)
+    }
+
+    function loadNextMail() {
+        navigate(`/mail/${nextMailId}`)
+    }
 
     if (!mail) return <h2 className="mail-loader">Loading...</h2>
     return (
@@ -39,10 +61,10 @@ export function MailDetails() {
             <div className="mail-details-header">
                 <button onClick={() => navigate('/mail')}>Back</button>
                 <div>
-                    <button>Reply</button>
-                    <button onClick={() => {mailService.remove(mail.id)}}>trash</button>
-                    <button>Export note</button>
-                    <button>Mark starred</button>
+                    <button onClick={() => onReplyMail(mail.id)}>Reply</button>
+                    <button onClick={() => onClickTrash(mail.id)}>Trash</button>
+                    <button onClick={() => onToggleAttr(mail.id, 'isStarred', true)}>Mark starred</button>
+                    <button onClick={loadNextMail}>Next</button>
                 </div>
             </div>
 
