@@ -1,0 +1,56 @@
+.review-container {
+    margin-top: 20px;
+    background-color: lightcyan;
+}
+
+.review-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f7f7f7;
+}
+
+.review-details {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.review-fullname {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.review-rating .star {
+    color: #f5c518;
+    margin-right: 2px;
+}
+
+.review-readat {
+    font-size: 14px;
+    color: #888;
+}
+
+.review-delete-btn {
+    background: none;
+    border: none;
+    color: #f5c518;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.review-delete-btn:hover {
+    color: #d69e0e;
+}

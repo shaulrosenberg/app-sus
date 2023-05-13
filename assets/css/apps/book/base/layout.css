@@ -1,0 +1,24 @@
+.book-layout {
+  display: grid;
+  /* grid-template-columns: 1.6rem 1fr 1.6rem; */
+  align-items: start;
+}
+
+/* .book-layout.app {
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+} */
+
+/* .book-layout > * {
+  grid-column: 2;
+} */
+
+.book-layout .full {
+  grid-column: 1/-1;
+}
+
+.container {
+  max-width: 800px;
+  padding: 1em;
+  margin: auto;
+}

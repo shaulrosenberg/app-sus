@@ -1,0 +1,105 @@
+.book-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+.book-img {
+  position: relative;
+  max-width: 400px;
+}
+
+.book-img img {
+  max-width: 100%;
+}
+
+.sale-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  background-color: #ff4081;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+.book-details h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.book-details h5 {
+  font-size: 1.2rem;
+}
+
+.book-details-nav a {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.4rem;
+  background-color: #2196f3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.book-details-nav a:hover {
+  background-color: #1565c0;
+}
+.book-details button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.4rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-details button:hover {
+  background-color: #1565c0;
+}
+.book-details form {
+  margin-top: 2rem;
+}
+
+.book-details label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.book-details input[type='text'],
+.book-details input[type='number'] {
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.book-details input[type='text']:focus,
+.book-details input[type='number']:focus {
+  outline: none;
+  border-color: #2196f3;
+}
+
+.book-details button {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.4rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-details button:hover {
+  background-color: #1565c0;
+}

@@ -1,3 +1,27 @@
+/* books */
+/* Setup */
+@import './apps/book/setup/vars.css';
+
+/* Base */
+/* @import './apps/book/base/base.css'; */
+@import './apps/book/base/layout.css';
+/* @import './apps/book/base/forms.css'; */
+
+/* Views */
+
+/* Components */
+/* @import './apps/book/cmps/app-header.css'; */
+@import './apps/book/cmps/book-filter.css';
+@import './apps/book/cmps/book-list.css';
+@import './apps/book/cmps/book-preview.css';
+@import './apps/book/cmps/book-details.css';
+@import './apps/book/cmps/book-edit.css';
+@import './apps/book/cmps/book-review.css';
+@import './apps/book/cmps/review-item.css';
+/* @import './apps/book/cmps/app-footer.css'; */
+@import './apps/book/cmps/book-add.css';
+@import './apps/book/cmps/book-index.css';
+
 /* Setup */
 
 @import './setup/variables.css';
