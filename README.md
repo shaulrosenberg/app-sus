@@ -2,7 +2,7 @@
 
 App-Sus is a collection of three mini-applications built with React. These applications provide the functionality of book management, an email client, and a note-taking app. The project focuses on delivering pixel-perfect style and design, mimicking the look and feel of popular applications such as Google Books, Gmail, and Google Keep.
 
-![App-Sus Screenshot]([./screenshot.png](https://i.ibb.co/dkkN42F/image.png)) <!-- Replace with your screenshot -->
+![App-Sus Screenshot]([https://i.ibb.co/dkkN42F/image.png]) <!-- Replace with your screenshot -->
 
 ## Applications
 
@@ -24,13 +24,13 @@ To install and run the app:
 git clone https://github.com/shaulrosenberg/app-sus.git
 ```
 
-3. Install dependencies:
+2. Install dependencies:
 ```c
 cd app-sus
 npm install
 ```
 
-5. Start the app:
+3. Start the app:
 ```c
 npm start
 ```
