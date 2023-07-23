@@ -20,14 +20,13 @@ Take notes and keep them organized. Whether it's a quick thought, a detailed not
 To install and run the app:
 
 1. Clone the repository:
-```bash
 git clone https://github.com/shaulrosenberg/app-sus.git
 
-2. Install dependencies:
+3. Install dependencies:
 cd app-sus
 npm install
 
-3. Start the app:
+4. Start the app:
 npm start
 
 
